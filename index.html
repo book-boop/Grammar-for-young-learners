@@ -43,7 +43,7 @@
 
     .app-container {
       width: 100%;
-      max-width: 860px;
+      max-width: 880px;
       min-height: 720px;
       background: linear-gradient(165deg, #F0F6FD 0%, #E3EDF9 50%, #F5F9FD 100%);
       border-radius: 30px;
@@ -162,7 +162,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 22px;
+      gap: 24px;
       width: 100%;
       margin: 10px 0 32px 0;
     }
@@ -171,42 +171,39 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 24px;
+      gap: 26px;
       flex-wrap: wrap;
     }
 
-    /* 書本擬真卡片 */
+    /* 書本外框與陰影 */
     .book-item {
-      width: 155px;
-      height: 220px;
-      border-radius: 14px;
+      width: 160px;
+      height: 228px;
+      border-radius: 12px;
       box-shadow: var(--book-shadow);
       cursor: pointer;
       position: relative;
       transition: all 0.32s cubic-bezier(0.25, 0.8, 0.25, 1);
       user-select: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 14px 12px;
-      color: #FFF;
-      border: 2px solid rgba(255, 255, 255, 0.65);
       overflow: hidden;
+      background-color: #FFFFFF;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* 書脊效果光暈 */
+    /* 書脊立體微陰影光澤 */
     .book-item::before {
       content: "";
       position: absolute;
       left: 0;
       top: 0;
       bottom: 0;
-      width: 12px;
-      background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0.05) 75%, transparent);
-      border-top-left-radius: 12px;
-      border-bottom-left-radius: 12px;
+      width: 14px;
+      background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.02) 80%, transparent);
       pointer-events: none;
-      z-index: 2;
+      z-index: 5;
     }
 
     .book-item::after {
@@ -215,18 +212,11 @@
       right: 0;
       top: 0;
       bottom: 0;
-      width: 4px;
-      background: linear-gradient(to left, rgba(0,0,0,0.15), transparent);
+      width: 6px;
+      background: linear-gradient(to left, rgba(0,0,0,0.12), transparent);
       pointer-events: none;
-      z-index: 2;
+      z-index: 5;
     }
-
-    /* 預設五本書的配色 */
-    .book-1 { background: linear-gradient(145deg, #3B82F6, #1D4ED8); }
-    .book-2 { background: linear-gradient(145deg, #10B981, #047857); }
-    .book-3 { background: linear-gradient(145deg, #F59E0B, #B45309); }
-    .book-4 { background: linear-gradient(145deg, #EC4899, #BE185D); }
-    .book-5 { background: linear-gradient(145deg, #8B5CF6, #6D28D9); }
 
     /* 上排三本自然微旋轉 */
     .row-top .book-item:nth-child(1) { transform: rotate(-4deg); }
@@ -239,53 +229,50 @@
 
     .book-item:hover {
       transform: translateY(-12px) scale(1.08) rotate(0deg) !important;
-      box-shadow: 0 24px 38px rgba(30, 58, 138, 0.35);
+      box-shadow: 0 24px 42px rgba(30, 58, 138, 0.35);
       z-index: 10;
       border-color: #FFFFFF;
     }
 
-    .book-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* 書封圖片 (優先載入真實 png 圖片) */
+    .book-cover-img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
       position: relative;
-      z-index: 3;
+      z-index: 1;
     }
+
+    /* 圖片載入失敗時的後備設計展示 */
+    .book-fallback-view {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 14px 12px;
+      color: #FFF;
+      z-index: 2;
+    }
+    .book-1-bg { background: linear-gradient(145deg, #3B82F6, #1D4ED8); }
+    .book-2-bg { background: linear-gradient(145deg, #10B981, #047857); }
+    .book-3-bg { background: linear-gradient(145deg, #F59E0B, #B45309); }
+    .book-4-bg { background: linear-gradient(145deg, #EC4899, #BE185D); }
+    .book-5-bg { background: linear-gradient(145deg, #8B5CF6, #6D28D9); }
 
     .book-tag {
       font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
       padding: 3px 8px;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(4px);
-    }
-
-    .status-badge {
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 3px 7px;
-      border-radius: 12px;
-      letter-spacing: 0.5px;
-    }
-    .status-badge.coming-soon {
-      background: rgba(15, 23, 42, 0.65);
-      color: #FDE047;
-      border: 1px solid rgba(253, 224, 71, 0.45);
-    }
-    .status-badge.ready {
-      background: rgba(16, 185, 129, 0.85);
-      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.28);
+      align-self: flex-start;
     }
 
     .book-main-title {
       text-align: center;
       margin: auto 0;
-      position: relative;
-      z-index: 3;
     }
     .book-level {
       font-size: 1.65rem;
@@ -298,7 +285,6 @@
       font-weight: 600;
       opacity: 0.95;
       margin-top: 4px;
-      line-height: 1.25;
     }
 
     .book-footer {
@@ -308,20 +294,6 @@
       opacity: 0.85;
       border-top: 1px solid rgba(255,255,255,0.25);
       padding-top: 6px;
-      position: relative;
-      z-index: 3;
-    }
-
-    /* 書封圖片支援 */
-    .book-cover-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: none;
-      z-index: 1;
     }
 
     .btn-start {
@@ -363,93 +335,6 @@
       width: 100%;
       max-width: 800px;
       margin: 10px 0;
-    }
-
-    /* =========================================
-       製作中提示畫面 (Under Construction)
-       ========================================= */
-    #screen-construction {
-      justify-content: center;
-      align-items: center;
-      padding: 20px 0;
-    }
-
-    .construction-card {
-      width: 100%;
-      max-width: 580px;
-      background: #FFFFFF;
-      border: 2px solid #E2E8F0;
-      border-radius: 24px;
-      padding: 42px 28px;
-      text-align: center;
-      box-shadow: 0 16px 36px rgba(30, 58, 138, 0.08);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .construction-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #3B82F6, #10B981, #F59E0B, #EC4899, #8B5CF6);
-    }
-
-    .construction-icon-wrap {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      background: #EFF6FF;
-      border: 3px dashed #93C5FD;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      margin-bottom: 20px;
-      animation: gentleBounce 2s infinite ease-in-out;
-    }
-
-    @keyframes gentleBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .construction-book-tag {
-      display: inline-block;
-      font-size: 0.95rem;
-      font-weight: 800;
-      padding: 4px 16px;
-      border-radius: 20px;
-      background: #F1F5F9;
-      color: #3B82F6;
-      margin-bottom: 12px;
-    }
-
-    .construction-title {
-      font-size: 1.85rem;
-      font-weight: 900;
-      color: #1E3A8A;
-      margin-bottom: 10px;
-    }
-
-    .construction-desc {
-      font-size: 1.05rem;
-      color: #64748B;
-      line-height: 1.6;
-      max-width: 440px;
-      margin-bottom: 28px;
-    }
-
-    .construction-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     .book-select-card {
@@ -504,14 +389,6 @@
       flex: 1;
     }
 
-    .card-text .book-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 3px;
-    }
-
     .card-text .book-title {
       font-size: 1.1rem;
       font-weight: 800;
@@ -522,6 +399,7 @@
       font-size: 0.83rem;
       color: var(--text-muted);
       line-height: 1.35;
+      margin-top: 2px;
     }
 
     .back-btn-pill {
@@ -544,386 +422,81 @@
     }
 
     /* =========================================
-       3. 答題畫面
+       3. 製作中提示畫面 (Under Construction)
        ========================================= */
-    #screen-quiz {
-      justify-content: flex-start;
-      width: 100%;
+    #screen-construction {
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
     }
 
-    .nav-bar { 
-      width: 100%; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      margin-bottom: 12px; 
-    }
-    .quiz-back-btn { 
-      border: none; 
-      background: transparent; 
-      font-size: 1rem; 
-      color: var(--primary-color); 
-      cursor: pointer; 
-      font-weight: 700; 
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: 0.2s;
-    }
-    .quiz-back-btn:hover {
-      color: var(--primary-dark);
-      transform: translateX(-3px);
-    }
-    
-    .scope-box {
+    .construction-card {
       width: 100%;
+      max-width: 580px;
       background: #FFFFFF;
-      border-left: 5px solid var(--primary-color);
-      border-radius: 8px;
-      padding: 12px 18px;
-      margin-bottom: 14px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .scope-title { 
-      font-weight: 800; 
-      color: #1E3A8A; 
-      font-size: 1.05rem;
-      margin-bottom: 4px; 
+      border: 2px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 42px 28px;
+      text-align: center;
+      box-shadow: 0 16px 36px rgba(30, 58, 138, 0.08);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-    }
-    .scope-detail { 
-      color: #475569; 
-      font-size: 0.9rem; 
-      line-height: 1.45;
-      white-space: pre-line; 
-    }
-
-    .part-tabs { 
-      display: flex; 
-      gap: 10px; 
-      width: 100%; 
-      margin-bottom: 16px; 
-      border-bottom: 2px solid rgba(255,255,255,0.7); 
-      padding-bottom: 8px; 
-    }
-    .tab-btn { 
-      background: rgba(255,255,255,0.7); 
-      border: 1.5px solid #CBD5E1; 
-      font-size: 0.95rem; 
-      padding: 7px 18px; 
-      border-radius: 20px; 
-      color: var(--text-muted); 
-      font-weight: 700; 
-      transition: 0.2s;
-      cursor: default;
-    }
-    .tab-btn.active { 
-      background: var(--primary-color); 
-      color: #FFF; 
-      border-color: var(--primary-color);
-      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-    }
-
-    .quiz-body { 
-      width: 100%; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-    }
-
-    .progress-bar-container {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #475569;
-    }
-    .progress-track {
-      flex: 1;
-      height: 9px;
-      background: #CBD5E1;
-      border-radius: 6px;
-      margin: 0 16px;
+      position: relative;
       overflow: hidden;
     }
-    .progress-fill {
-      height: 100%;
-      background: var(--primary-color);
-      width: 0%;
-      transition: width 0.35s ease;
-      border-radius: 6px;
-    }
 
-    .part-instruction {
-      width: 100%;
-      background: #FFFBEB;
-      border: 1.5px solid #FCD34D;
-      border-radius: 10px;
-      padding: 10px 16px;
-      margin-bottom: 18px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #92400E;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-align: center;
-    }
-
-    .single-card {
-      width: 100%;
-      background: #FFFFFF;
-      border: 1.5px solid #E2E8F0;
-      border-radius: 18px;
-      padding: 26px 24px 30px 24px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .card-question-text {
-      font-size: 1.65rem;
-      font-weight: 800;
-      color: #0F172A;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      line-height: 1.4;
-    }
-
-    .blank-underline {
-      display: inline-block;
-      min-width: 70px;
-      border-bottom: 3.5px solid var(--primary-color);
-      padding: 0 6px;
-      color: var(--primary-color);
-    }
-
-    .card-question-hint {
-      font-size: 1.05rem;
-      color: #64748B;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    .card-options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      max-width: 480px;
-    }
-    .option-btn {
-      width: 100%;
-      padding: 14px 20px;
-      font-size: 1.18rem;
-      border: 2px solid #E2E8F0;
-      border-radius: 12px;
-      background: #FFFFFF;
-      cursor: pointer;
-      font-weight: 600;
-      color: #1E293B;
-      transition: all 0.2s ease;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .option-btn:hover:not(:disabled) {
-      border-color: var(--primary-color);
-      background: #F8FAFC;
-      transform: translateY(-2px);
-    }
-    .option-btn.correct {
-      background: var(--success) !important;
-      border-color: var(--success) !important;
-      color: #FFF !important;
-    }
-    .option-btn.wrong {
-      background: var(--danger) !important;
-      border-color: var(--danger) !important;
-      color: #FFF !important;
-    }
-
-    .fill-group {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-      margin-top: 10px;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-    .input-fill {
-      padding: 12px 18px;
-      font-size: 1.3rem;
-      border: 2.5px solid #CBD5E1;
-      border-radius: 10px;
-      width: 200px;
-      text-align: center;
-      font-weight: 700;
-      color: #1E293B;
-      outline: none;
-      transition: 0.2s;
-    }
-    .input-fill:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-    }
-
-    .btn-submit-fill {
-      padding: 12px 28px;
-      font-size: 1.05rem;
-      background: var(--primary-color);
-      color: #FFF;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .btn-submit-fill:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-next-action {
-      margin-top: 22px;
-      padding: 11px 34px;
-      font-size: 1.1rem;
-      background: #1E293B;
-      color: #FFF;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .btn-next-action:hover {
-      background: #0F172A;
-      transform: translateY(-2px);
-    }
-
-    .btn-audio {
-      background: #EFF6FF;
-      border: 2px solid var(--primary-color);
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      font-size: 1.25rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.2s;
-      flex-shrink: 0;
-    }
-    .btn-audio:hover {
-      background: #DBEAFE;
-      transform: scale(1.08);
-    }
-
-    /* =========================================
-       彈出提示視窗 (Modal Overlay)
-       ========================================= */
-    .modal-overlay {
-      position: fixed;
+    .construction-card::before {
+      content: "";
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(15, 23, 42, 0.55);
-      backdrop-filter: blur(5px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.25s ease-out;
-      padding: 20px;
-    }
-    .modal-overlay.active {
-      opacity: 1;
-      visibility: visible;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #3B82F6, #10B981, #F59E0B, #EC4899, #8B5CF6);
     }
 
-    .modal-dialog {
-      background: #FFFFFF;
-      border-radius: 24px;
-      padding: 32px 28px;
-      max-width: 440px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
-      transform: scale(0.92);
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      border: 3px solid #E2E8F0;
-    }
-    .modal-overlay.active .modal-dialog {
-      transform: scale(1);
+    .construction-thumb {
+      width: 120px;
+      height: 165px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+      margin-bottom: 20px;
+      border: 2px solid #E2E8F0;
     }
 
-    .modal-icon {
-      width: 72px;
-      height: 72px;
-      background: #FEF3C7;
-      border: 3px solid #FCD34D;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      margin: 0 auto 16px auto;
-    }
-
-    .modal-title {
-      font-size: 1.5rem;
+    .construction-book-tag {
+      display: inline-block;
+      font-size: 0.95rem;
       font-weight: 800;
-      color: #1E293B;
+      padding: 4px 16px;
+      border-radius: 20px;
+      background: #F1F5F9;
+      color: #3B82F6;
+      margin-bottom: 12px;
+    }
+
+    .construction-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #1E3A8A;
       margin-bottom: 10px;
     }
 
-    .modal-message {
-      font-size: 0.98rem;
+    .construction-desc {
+      font-size: 1.05rem;
       color: #64748B;
-      line-height: 1.55;
-      margin-bottom: 24px;
-      white-space: pre-line;
+      line-height: 1.6;
+      max-width: 440px;
+      margin-bottom: 28px;
     }
 
-    .modal-btn {
-      padding: 12px 42px;
-      font-size: 1.1rem;
-      font-weight: 800;
-      background: var(--primary-color);
-      color: #FFF;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
-    }
-    .modal-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
+    .construction-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     /* RWD 適應手機與平板 */
@@ -945,16 +518,8 @@
       
       .books-showcase { gap: 16px; margin-bottom: 24px; }
       .books-row { gap: 14px; }
-      .book-item { width: 105px; height: 152px; padding: 10px 8px; }
-      .book-tag { font-size: 0.58rem; padding: 2px 5px; }
-      .status-badge { font-size: 0.55rem; padding: 2px 5px; }
-      .book-level { font-size: 1.2rem; }
-      .book-sub { font-size: 0.65rem; }
-      .book-footer { font-size: 0.6rem; }
-      
+      .book-item { width: 105px; height: 150px; }
       .btn-start { padding: 13px 56px; font-size: 1.25rem; }
-      .card-question-text { font-size: 1.35rem; }
-      .single-card { padding: 20px 14px; }
       .menu-cards-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -974,79 +539,74 @@
         <div class="header-curve-line"></div>
       </div>
 
-      <!-- 五本書封展示區：上排 3 本、下排 2 本 -->
+      <!-- 五本書封展示區：第一排 3 本、第二排 2 本 -->
       <div class="books-showcase">
         <div class="books-row row-top">
-          <!-- Book 1 (已就緒) -->
-          <div class="book-item book-1" onclick="handleBookClick(1)" title="點選進入 Book 1 練習">
-            <div class="book-top-row">
+          <!-- Book 1 -->
+          <div class="book-item" onclick="loadAndOpenTheme(1)" title="點選進入 Book 1">
+            <img src="./images/b1.png" alt="Grammar 1" class="book-cover-img" onerror="showFallback(this, 1)">
+            <div class="book-fallback-view book-1-bg" id="fallback-1" style="display:none;">
               <span class="book-tag">Level 1</span>
-              <span class="status-badge ready">已開放</span>
+              <div class="book-main-title">
+                <span class="book-level">Book 1</span>
+                <span class="book-sub">Nouns &amp; Pronouns</span>
+              </div>
+              <div class="book-footer">Grammar Core</div>
             </div>
-            <div class="book-main-title">
-              <span class="book-level">Book 1</span>
-              <span class="book-sub">Nouns &amp; Pronouns</span>
-            </div>
-            <div class="book-footer">Grammar Core</div>
-            <img src="./images/grammar_book1.png" alt="Book 1" class="book-cover-img" onerror="this.style.display='none'">
           </div>
 
-          <!-- Book 2 (製作中) -->
-          <div class="book-item book-2" onclick="handleBookClick(2)" title="點選進入 Book 2 練習">
-            <div class="book-top-row">
+          <!-- Book 2 -->
+          <div class="book-item" onclick="loadAndOpenTheme(2)" title="點選進入 Book 2">
+            <img src="./images/b2.png" alt="Grammar 2" class="book-cover-img" onerror="showFallback(this, 2)">
+            <div class="book-fallback-view book-2-bg" id="fallback-2" style="display:none;">
               <span class="book-tag">Level 2</span>
-              <span class="status-badge coming-soon">製作中</span>
+              <div class="book-main-title">
+                <span class="book-level">Book 2</span>
+                <span class="book-sub">Present Tense &amp; Be</span>
+              </div>
+              <div class="book-footer">Grammar Core</div>
             </div>
-            <div class="book-main-title">
-              <span class="book-level">Book 2</span>
-              <span class="book-sub">Present Tense &amp; Be</span>
-            </div>
-            <div class="book-footer">Grammar Core</div>
-            <img src="./images/grammar_book2.png" alt="Book 2" class="book-cover-img" onerror="this.style.display='none'">
           </div>
 
-          <!-- Book 3 (製作中) -->
-          <div class="book-item book-3" onclick="handleBookClick(3)" title="點選進入 Book 3 練習">
-            <div class="book-top-row">
+          <!-- Book 3 -->
+          <div class="book-item" onclick="loadAndOpenTheme(3)" title="點選進入 Book 3">
+            <img src="./images/b3.png" alt="Grammar 3" class="book-cover-img" onerror="showFallback(this, 3)">
+            <div class="book-fallback-view book-3-bg" id="fallback-3" style="display:none;">
               <span class="book-tag">Level 3</span>
-              <span class="status-badge coming-soon">製作中</span>
+              <div class="book-main-title">
+                <span class="book-level">Book 3</span>
+                <span class="book-sub">Adjectives &amp; Preps</span>
+              </div>
+              <div class="book-footer">Grammar Core</div>
             </div>
-            <div class="book-main-title">
-              <span class="book-level">Book 3</span>
-              <span class="book-sub">Adjectives &amp; Preps</span>
-            </div>
-            <div class="book-footer">Grammar Core</div>
-            <img src="./images/grammar_book3.png" alt="Book 3" class="book-cover-img" onerror="this.style.display='none'">
           </div>
         </div>
 
         <div class="books-row row-bottom">
-          <!-- Book 4 (製作中) -->
-          <div class="book-item book-4" onclick="handleBookClick(4)" title="點選進入 Book 4 練習">
-            <div class="book-top-row">
+          <!-- Book 4 -->
+          <div class="book-item" onclick="loadAndOpenTheme(4)" title="點選進入 Book 4">
+            <img src="./images/b4.png" alt="Grammar 4" class="book-cover-img" onerror="showFallback(this, 4)">
+            <div class="book-fallback-view book-4-bg" id="fallback-4" style="display:none;">
               <span class="book-tag">Level 4</span>
-              <span class="status-badge coming-soon">製作中</span>
+              <div class="book-main-title">
+                <span class="book-level">Book 4</span>
+                <span class="book-sub">Past Tense &amp; Modals</span>
+              </div>
+              <div class="book-footer">Grammar Core</div>
             </div>
-            <div class="book-main-title">
-              <span class="book-level">Book 4</span>
-              <span class="book-sub">Past Tense &amp; Modals</span>
-            </div>
-            <div class="book-footer">Grammar Core</div>
-            <img src="./images/grammar_book4.png" alt="Book 4" class="book-cover-img" onerror="this.style.display='none'">
           </div>
 
-          <!-- Book 5 (製作中) -->
-          <div class="book-item book-5" onclick="handleBookClick(5)" title="點選進入 Book 5 練習">
-            <div class="book-top-row">
+          <!-- Book 5 -->
+          <div class="book-item" onclick="loadAndOpenTheme(5)" title="點選進入 Book 5">
+            <img src="./images/b5.png" alt="Grammar 5" class="book-cover-img" onerror="showFallback(this, 5)">
+            <div class="book-fallback-view book-5-bg" id="fallback-5" style="display:none;">
               <span class="book-tag">Level 5</span>
-              <span class="status-badge coming-soon">製作中</span>
+              <div class="book-main-title">
+                <span class="book-level">Book 5</span>
+                <span class="book-sub">Conjunctions &amp; Clauses</span>
+              </div>
+              <div class="book-footer">Grammar Core</div>
             </div>
-            <div class="book-main-title">
-              <span class="book-level">Book 5</span>
-              <span class="book-sub">Conjunctions &amp; Clauses</span>
-            </div>
-            <div class="book-footer">Grammar Core</div>
-            <img src="./images/grammar_book5.png" alt="Book 5" class="book-cover-img" onerror="this.style.display='none'">
           </div>
         </div>
       </div>
@@ -1055,7 +615,7 @@
     </div>
   </section>
 
-  <!-- 2. 主題目錄頁 (選擇冊數與範圍) -->
+  <!-- 2. 主題目錄頁 (選擇冊數) -->
   <section id="screen-menu" class="view-screen">
     <div class="curved-header">
       <div class="title-badge">
@@ -1082,11 +642,11 @@
     </div>
 
     <div class="construction-card">
-      <div class="construction-icon-wrap" id="constructionIcon">📚</div>
+      <img id="constructionBookImg" src="./images/b1.png" alt="Book cover" class="construction-thumb" onerror="this.style.display='none'">
       <div class="construction-book-tag" id="constructionBookTag">Book 1 · Nouns &amp; Pronouns</div>
       <h2 class="construction-title">題庫正在製作中...</h2>
       <p class="construction-desc">
-        這本書的文法測驗題庫與精彩練習單元目前正在精心編寫校對中！敬請期待即將推出的全新互動題目。
+        這本書的文法題庫與各單元練習目前正在精心編寫校對中！題庫完成後將立刻開放互動測驗。
       </p>
       <div class="construction-actions">
         <button class="btn-start" style="padding: 12px 30px; font-size: 1.05rem; margin-top: 0;" onclick="navigateTo('screen-menu')">📚 回書籍目錄</button>
@@ -1095,34 +655,10 @@
     </div>
   </section>
 
-  <!-- 4. 測驗進行頁 (保留架構供日後題庫對接) -->
-  <section id="screen-quiz" class="view-screen">
-    <div class="nav-bar">
-      <button class="quiz-back-btn" onclick="navigateTo('screen-menu')">← 回書籍目錄</button>
-      <span id="currentThemeTag" style="font-weight: 800; color: #1E3A8A;"></span>
-    </div>
-
-    <!-- 本冊文法練習範圍提示框 -->
-    <div class="scope-box" id="scopeContainer">
-      <div class="scope-title" id="scopeTitle">📖 適用範圍</div>
-      <div class="scope-detail" id="scopeDetail">題目範圍載入中...</div>
-    </div>
-
-    <!-- Part A / B / C 進度分頁指示 -->
-    <div class="part-tabs">
-      <button id="tab-partA" class="tab-btn active">Part A: 選擇題</button>
-      <button id="tab-partB" class="tab-btn">Part B: 填空題</button>
-      <button id="tab-partC" class="tab-btn">Part C: 偵錯辨析</button>
-    </div>
-
-    <!-- 題目主容器 -->
-    <div class="quiz-body" id="questionsContainer"></div>
-  </section>
-
 </div>
 
 <script>
-  // ====== 1. LINE 專用：自動強制跳轉至外部瀏覽器以確保語音與互動完整相容 ======
+  // ====== LINE 專用：自動強制跳轉至外部瀏覽器以確保語音與互動完整相容 ======
   (function handleLineRedirect() {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const isLine = /Line\//i.test(ua);
@@ -1135,7 +671,7 @@
     }
   })();
 
-  // ====== 2. 手機語音解鎖 ======
+  // ====== 手機語音解鎖 ======
   let ttsUnlocked = false;
   function unlockAudioForMobile() {
     if (ttsUnlocked || !('speechSynthesis' in window)) return;
@@ -1147,170 +683,51 @@
   document.addEventListener('click', unlockAudioForMobile, { once: true });
   document.addEventListener('touchstart', unlockAudioForMobile, { once: true });
 
-  // ====== 3. 五本書冊的設定與直接內建 Demo 題庫 ======
+  // ====== 五本書冊的基本設定 ======
   const booksConfig = [
     {
       id: 1,
+      image: "./images/b1.png",
       color: "#3B82F6",
       bookTitle: "Book 1",
       topic: "Nouns & Pronouns",
-      fullTheme: "Nouns, Articles & Subject Pronouns",
-      scope: "名詞單複數變化 (-s, -es)、定冠詞與不定冠詞 (a, an, the)、人稱代名詞 (I, You, He, She, It, We, They)",
-      instructions: {
-        partA: "Part A: 根據文法規則，選出最合適的選項填入空格。",
-        partB: "Part B: 依句意及括號提示，填入正確的單字（可按 Enter 提交）。",
-        partC: "Part C: 仔細聆聽句子，選出文法正確的句子或代名詞用法。"
-      },
-      questions: {
-        partA: [
-          { question: "This is _____ apple on the teacher's desk.", options: ["a", "an", "the", "two"], answer: "an", speakText: "This is an apple on the teacher's desk." },
-          { question: "Look at the sky! _____ are three birds flying.", options: ["There", "Their", "They're", "They"], answer: "There", speakText: "Look at the sky! There are three birds flying." },
-          { question: "My mother is a doctor. _____ works at a hospital.", options: ["He", "She", "It", "They"], answer: "She", speakText: "My mother is a doctor. She works at a hospital." },
-          { question: "I see three small _____ in the kitchen.", options: ["mouse", "mouses", "mice", "mices"], answer: "mice", speakText: "I see three small mice in the kitchen." }
-        ],
-        partB: [
-          { prompt: "I have two _____ (box) on my table.", hint: "注意 box 的複數結尾 (-es)", answer: "boxes", speakText: "I have two boxes on my table." },
-          { prompt: "_____ (He) is my best friend Jack.", hint: "填入人稱主格代名詞", answer: "He", speakText: "He is my best friend Jack." },
-          { prompt: "Can you give me _____ (a/an) orange?", hint: "母音發音開頭使用 an", answer: "an", speakText: "Can you give me an orange?" }
-        ],
-        partC: [
-          { question: "選出文法完全正確的句子：", options: ["She have a cat.", "She has an cat.", "She has a cat."], answer: "She has a cat.", speakText: "She has a cat." },
-          { question: "聽語音選出正確的名詞複數形態：", options: ["three childs", "three children", "three childrens"], answer: "three children", speakText: "three children" },
-          { question: "選出代名詞使用無誤的句子：", options: ["Me and him went to school.", "He and I went to school.", "Him and me went to school."], answer: "He and I went to school.", speakText: "He and I went to school." }
-        ]
-      }
+      fullTheme: "Nouns, Articles & Subject Pronouns"
     },
     {
       id: 2,
+      image: "./images/b2.png",
       color: "#10B981",
       bookTitle: "Book 2",
       topic: "Present Tense & Verbs",
-      fullTheme: "Simple Present & Present Continuous",
-      scope: "現在簡單式 (第三人稱單數動詞 +s/-es)、現在進行式 (be + V-ing)、be動詞 (am, is, are)",
-      instructions: {
-        partA: "Part A: 選出合適的動詞形式填入句子。",
-        partB: "Part B: 將括號中的動詞轉換為正確時態形式填入。",
-        partC: "Part C: 聽音並判斷正在進行或一般習慣的正確句型。"
-      },
-      questions: {
-        partA: [
-          { question: "Tom always _____ his teeth before bed.", options: ["brush", "brushes", "brushing", "brushed"], answer: "brushes", speakText: "Tom always brushes his teeth before bed." },
-          { question: "Listen! The baby _____ in the bedroom.", options: ["cry", "cries", "is crying", "are crying"], answer: "is crying", speakText: "Listen! The baby is crying in the bedroom." },
-          { question: "We _____ students at Happy Elementary School.", options: ["am", "is", "are", "be"], answer: "are", speakText: "We are students at Happy Elementary School." },
-          { question: "_____ your sister like eating strawberries?", options: ["Do", "Does", "Is", "Are"], answer: "Does", speakText: "Does your sister like eating strawberries?" }
-        ],
-        partB: [
-          { prompt: "The sun _____ (rise) in the east every morning.", hint: "第三人稱單數現在簡單式", answer: "rises", speakText: "The sun rises in the east every morning." },
-          { prompt: "Look! They are _____ (play) soccer in the park.", hint: "進行式加 ing", answer: "playing", speakText: "Look! They are playing soccer in the park." },
-          { prompt: "He _____ (not like) cold milk in the morning.", hint: "否定句填 doesn't like", answer: "doesn't like", speakText: "He doesn't like cold milk in the morning." }
-        ],
-        partC: [
-          { question: "選出疑問句文法正確者：", options: ["Does he likes apples?", "Do he like apples?", "Does he like apples?"], answer: "Does he like apples?", speakText: "Does he like apples?" },
-          { question: "聽語音選出當下正在進行的正確句子：", options: ["I am reading a comic book.", "I reading a comic book.", "I be reading a comic book."], answer: "I am reading a comic book.", speakText: "I am reading a comic book." },
-          { question: "選出第三人稱動詞變化完全正確的一組：", options: ["go - gos", "study - studys", "watch - watches"], answer: "watch - watches", speakText: "watch, watches" }
-        ]
-      }
+      fullTheme: "Simple Present & Present Continuous"
     },
     {
       id: 3,
+      image: "./images/b3.png",
       color: "#F59E0B",
       bookTitle: "Book 3",
       topic: "Adjectives & Prepositions",
-      fullTheme: "Adjectives, Comparatives & Prepositions of Place",
-      scope: "形容詞原級、比較級與最高級 (-er, -est, more, most)、地方介系詞 (in, on, under, behind, next to)",
-      instructions: {
-        partA: "Part A: 根據位置或比較關係，選出最佳答案。",
-        partB: "Part B: 依題意填入正確的形容詞形態或介系詞。",
-        partC: "Part C: 聽音辨析最精確的空間與比較句型。"
-      },
-      questions: {
-        partA: [
-          { question: "An elephant is _____ than a brown bear.", options: ["big", "bigger", "biggest", "more big"], answer: "bigger", speakText: "An elephant is bigger than a brown bear." },
-          { question: "The cat is sleeping _____ the soft rug on the floor.", options: ["on", "at", "between", "over"], answer: "on", speakText: "The cat is sleeping on the soft rug on the floor." },
-          { question: "Who is the _____ student in your whole class?", options: ["tall", "taller", "tallest", "most tall"], answer: "tallest", speakText: "Who is the tallest student in your whole class?" },
-          { question: "The library is _____ the post office and the bank.", options: ["next", "between", "among", "inside"], answer: "between", speakText: "The library is between the post office and the bank." }
-        ],
-        partB: [
-          { prompt: "Winter is _____ (cold) than spring.", hint: "填入形容詞比較級 (-er)", answer: "colder", speakText: "Winter is colder than spring." },
-          { prompt: "The pencil fell _____ the desk (在...底下).", hint: "介系詞 (以 u 開頭)", answer: "under", speakText: "The pencil fell under the desk." },
-          { prompt: "Health is _____ (important) than money.", hint: "多音節比較級加 more", answer: "more important", speakText: "Health is more important than money." }
-        ],
-        partC: [
-          { question: "選出正確的最高級用法句子：", options: ["He is the faster runner in school.", "He is the fastest runner in school.", "He is most fastest runner in school."], answer: "He is the fastest runner in school.", speakText: "He is the fastest runner in school." },
-          { question: "聽語音選出正確介系詞片語：", options: ["under the bed", "between the bed", "inside of bed"], answer: "under the bed", speakText: "under the bed" },
-          { question: "選出形容詞比較級拼寫正確者：", options: ["good - gooder", "good - better", "good - best"], answer: "good - better", speakText: "good, better" }
-        ]
-      }
+      fullTheme: "Adjectives, Comparatives & Prepositions"
     },
     {
       id: 4,
+      image: "./images/b4.png",
       color: "#EC4899",
       bookTitle: "Book 4",
       topic: "Past Tense & Modals",
-      fullTheme: "Simple Past & Modal Verbs (Can, Could, Must, Should)",
-      scope: "過去簡單式規則動詞 (-ed) 與不規則動詞 (went, saw, ate)、情態助動詞 (can, could, must, should)",
-      instructions: {
-        partA: "Part A: 選出符合過去時間或情態助動詞的用法。",
-        partB: "Part B: 填入正確的過去式動詞或原形動詞。",
-        partC: "Part C: 聽音判斷句子的時間與語意狀態。"
-      },
-      questions: {
-        partA: [
-          { question: "Yesterday, our family _____ to the national museum.", options: ["go", "goes", "went", "going"], answer: "went", speakText: "Yesterday, our family went to the national museum." },
-          { question: "You _____ finish your project before watching television.", options: ["must", "can to", "should to", "are"], answer: "must", speakText: "You must finish your project before watching television." },
-          { question: "Did you _____ the famous movie last weekend?", options: ["watch", "watched", "watching", "watches"], answer: "watch", speakText: "Did you watch the famous movie last weekend?" },
-          { question: "Two years ago, I _____ speak English fluently.", options: ["couldn't", "can't", "not can", "won't"], answer: "couldn't", speakText: "Two years ago, I couldn't speak English fluently." }
-        ],
-        partB: [
-          { prompt: "I _____ (see) a shooting star in the sky last night.", hint: "see 的過去式不規則變化", answer: "saw", speakText: "I saw a shooting star in the sky last night." },
-          { prompt: "She can _____ (swim) across the Olympic pool.", hint: "情態助動詞後接原形動詞", answer: "swim", speakText: "She can swim across the Olympic pool." },
-          { prompt: "We _____ (eat) delicious pizza for dinner yesterday.", hint: "eat 的過去式", answer: "ate", speakText: "We ate delicious pizza for dinner yesterday." }
-        ],
-        partC: [
-          { question: "選出過去式否定句文法正確者：", options: ["He didn't went to church.", "He didn't go to church.", "He doesn't went to church."], answer: "He didn't go to church.", speakText: "He didn't go to church." },
-          { question: "聽語音選出時態與時間副詞相符的句子：", options: ["They played football yesterday.", "They play football yesterday.", "They will play football yesterday."], answer: "They played football yesterday.", speakText: "They played football yesterday." },
-          { question: "選出助動詞用法正確無誤者：", options: ["He must to wash his hands.", "He must washing his hands.", "He must wash his hands."], answer: "He must wash his hands.", speakText: "He must wash his hands." }
-        ]
-      }
+      fullTheme: "Simple Past & Modal Verbs"
     },
     {
       id: 5,
+      image: "./images/b5.png",
       color: "#8B5CF6",
       bookTitle: "Book 5",
       topic: "Conjunctions & Clauses",
-      fullTheme: "Conjunctions, Future Tense & Compound Sentences",
-      scope: "對等連接詞 (and, but, or, so)、從屬連接詞 (because, although, if)、未來式 (will, be going to)",
-      instructions: {
-        partA: "Part A: 根據前後句邏輯選出最合適的連接詞或未來動詞。",
-        partB: "Part B: 根據句意填入正確的連接詞或未來式動詞。",
-        partC: "Part C: 聽音選出因果與複合句結構正確者。"
-      },
-      questions: {
-        partA: [
-          { question: "I wanted to go to the park, _____ it started to rain heavily.", options: ["and", "but", "so", "because"], answer: "but", speakText: "I wanted to go to the park, but it started to rain heavily." },
-          { question: "Tomorrow, our school band _____ travel to Tainan for competition.", options: ["will", "did", "was", "has"], answer: "will", speakText: "Tomorrow, our school band will travel to Tainan for competition." },
-          { question: "He wore a thick coat _____ it was extremely cold outside.", options: ["because", "but", "or", "although"], answer: "because", speakText: "He wore a thick coat because it was extremely cold outside." },
-          { question: "If it _____ sunny this weekend, we will go camping.", options: ["is", "will be", "was", "are"], answer: "is", speakText: "If it is sunny this weekend, we will go camping." }
-        ],
-        partB: [
-          { prompt: "Hurry up, _____ (否則) you will miss the morning school bus.", hint: "連接詞 (2 個字母，表否則)", answer: "or", speakText: "Hurry up, or you will miss the morning school bus." },
-          { prompt: "We are going to _____ (visit) our grandparents this Sunday.", hint: "be going to 後接原形動詞", answer: "visit", speakText: "We are going to visit our grandparents this Sunday." },
-          { prompt: "She studied very hard, _____ (所以) she passed the exam.", hint: "結果連接詞 (2 個字母)", answer: "so", speakText: "She studied very hard, so she passed the exam." }
-        ],
-        partC: [
-          { question: "選出英文複合句中避免雙重連接詞的正確句子：", options: ["Although it was hot, but he ran fast.", "Although it was hot, he ran fast.", "Because it was hot, so he drank water."], answer: "Although it was hot, he ran fast.", speakText: "Although it was hot, he ran fast." },
-          { question: "聽語音選出前後因果關係最符合邏輯的句子：", options: ["She was sleepy, so she went to sleep early.", "She was sleepy, because she went to sleep early.", "She was sleepy, but she went to sleep early."], answer: "She was sleepy, so she went to sleep early.", speakText: "She was sleepy, so she went to sleep early." },
-          { question: "選出未來式句型正確無誤者：", options: ["I will to call you tonight.", "I am going call you tonight.", "I will call you tonight."], answer: "I will call you tonight.", speakText: "I will call you tonight." }
-        ]
-      }
+      fullTheme: "Conjunctions & Compound Sentences"
     }
   ];
 
   let currentBookMeta = null;
-  let currentQuizData = null;
-  let currentPart = 'partA';
-  let currentIndex = 0;
-  let partScores = { partA: 0, partB: 0, partC: 0 };
 
   // 畫面切換
   function navigateTo(screenId) {
@@ -1320,6 +737,13 @@
       target.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  }
+
+  // 圖片載入失敗時的後備顯示
+  function showFallback(imgEl, bookId) {
+    imgEl.style.display = 'none';
+    const fallback = document.getElementById(`fallback-${bookId}`);
+    if (fallback) fallback.style.display = 'flex';
   }
 
   // 初始化書本選單 Grid
@@ -1336,29 +760,11 @@
     `).join('');
   }
 
-  function updateTabIndicator(partKey) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    const activeTab = document.getElementById(`tab-${partKey}`);
-    if (activeTab) activeTab.classList.add('active');
-  }
-
-  // 洗牌題庫
-  function shuffleArray(array) {
-    if (!Array.isArray(array)) return [];
-    const arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-
-  // 點擊任一本書：顯示「題庫正在製作中」畫面
+  // 點擊任一本書：直接顯示「題庫正在製作中」提示頁面
   function loadAndOpenTheme(bookId) {
     currentBookMeta = booksConfig.find(b => b.id === bookId);
     if (!currentBookMeta) return;
 
-    // 更新製作中畫面的冊數標籤與代表圖標
     const tag = document.getElementById('constructionBookTag');
     if (tag) {
       tag.innerText = `${currentBookMeta.bookTitle} · ${currentBookMeta.topic}`;
@@ -1366,296 +772,15 @@
       tag.style.background = `${currentBookMeta.color}18`;
     }
 
+    const thumb = document.getElementById('constructionBookImg');
+    if (thumb) {
+      thumb.src = currentBookMeta.image;
+      thumb.style.display = 'block';
+    }
+
     navigateTo('screen-construction');
   }
 
-  // 開始闖關 (供日後題庫完成時直接切換調用)
-  function startFullQuiz() {
-    partScores = { partA: 0, partB: 0, partC: 0 };
-    currentPart = 'partA';
-    currentIndex = 0;
-
-    if (currentQuizData) {
-      if (currentQuizData.partA) currentQuizData.partA = shuffleArray(currentQuizData.partA);
-      if (currentQuizData.partB) currentQuizData.partB = shuffleArray(currentQuizData.partB);
-      if (currentQuizData.partC) currentQuizData.partC = shuffleArray(currentQuizData.partC);
-    }
-
-    updateTabIndicator('partA');
-    renderCurrentQuestion();
-  }
-
-  // 發音清理過濾
-  function cleanTextForSpeech(raw) {
-    if (!raw) return "";
-    let str = String(raw).replace(/<[^>]*>/g, '').trim();
-    str = str.replace(/_+/g, ' blank ').trim();
-    return str;
-  }
-
-  // 發音播放 (TTS + Fallback 音檔)
-  let fallbackAudio = null;
-  function playOnlineTTS(text) {
-    try {
-      if (fallbackAudio) {
-        fallbackAudio.pause();
-        fallbackAudio.currentTime = 0;
-      }
-      const audioUrl = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(text)}&type=2`;
-      fallbackAudio = new Audio(audioUrl);
-      fallbackAudio.play().catch(e => console.warn(e));
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  function playAccurateSpeech(text) {
-    const spoken = cleanTextForSpeech(text);
-    if (!spoken) return;
-
-    const ua = navigator.userAgent || "";
-    const isWeChat = /MicroMessenger/i.test(ua);
-
-    if (isWeChat || !('speechSynthesis' in window)) {
-      playOnlineTTS(spoken);
-      return;
-    }
-
-    if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
-      window.speechSynthesis.cancel();
-    }
-
-    setTimeout(() => {
-      const voices = window.speechSynthesis.getVoices();
-      const utterance = new SpeechSynthesisUtterance(spoken);
-      utterance.lang = 'en-US';
-      utterance.rate = 0.88;
-      utterance.pitch = 1.0;
-
-      const usVoice = voices.find(v => 
-        (v.lang === 'en-US' || v.lang === 'en_US') && 
-        (v.name.includes('Natural') || v.name.includes('Google US') || v.name.includes('Samantha') || v.name.includes('Zira') || v.name.includes('Ava'))
-      ) || voices.find(v => v.lang === 'en-US' || v.lang === 'en_US');
-
-      if (usVoice) utterance.voice = usVoice;
-      utterance.onerror = () => playOnlineTTS(spoken);
-      window.speechSynthesis.speak(utterance);
-    }, 40);
-  }
-
-  // 渲染完成結算卡片
-  function renderFinalSummary() {
-    const container = document.getElementById('questionsContainer');
-    const lenA = (currentQuizData.partA || []).length;
-    const lenB = (currentQuizData.partB || []).length;
-    const lenC = (currentQuizData.partC || []).length;
-
-    const totalScore = partScores.partA + partScores.partB + partScores.partC;
-    const totalQuestions = lenA + lenB + lenC;
-    const percentage = totalQuestions > 0 ? Math.round((totalScore / totalQuestions) * 100) : 0;
-
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.add('active'));
-
-    container.innerHTML = `
-      <div class="single-card" style="padding: 36px 24px;">
-        <h2 style="color: #1E3A8A; margin-bottom: 6px; font-size: 1.85rem;">🎉 練習完成！Great Job!</h2>
-        <p style="color: var(--text-muted); margin-bottom: 24px; font-weight: 700; font-size: 1.05rem;">
-          ${currentBookMeta.bookTitle} - ${currentBookMeta.topic}
-        </p>
-
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 500px; margin-bottom: 24px;">
-          <div style="background: #EFF6FF; border: 2px solid #BFDBFE; border-radius: 14px; padding: 14px 8px;">
-            <div style="font-size: 0.9rem; font-weight: 700; color: #1D4ED8; margin-bottom: 4px;">Part A</div>
-            <div style="font-size: 1.6rem; font-weight: 800; color: #1E3A8A;">${partScores.partA} <span style="font-size: 0.95rem; color: #64748B;">/ ${lenA}</span></div>
-          </div>
-          <div style="background: #ECFDF5; border: 2px solid #A7F3D0; border-radius: 14px; padding: 14px 8px;">
-            <div style="font-size: 0.9rem; font-weight: 700; color: #047857; margin-bottom: 4px;">Part B</div>
-            <div style="font-size: 1.6rem; font-weight: 800; color: #1E3A8A;">${partScores.partB} <span style="font-size: 0.95rem; color: #64748B;">/ ${lenB}</span></div>
-          </div>
-          <div style="background: #FEF3C7; border: 2px solid #FDE68A; border-radius: 14px; padding: 14px 8px;">
-            <div style="font-size: 0.9rem; font-weight: 700; color: #B45309; margin-bottom: 4px;">Part C</div>
-            <div style="font-size: 1.6rem; font-weight: 800; color: #1E3A8A;">${partScores.partC} <span style="font-size: 0.95rem; color: #64748B;">/ ${lenC}</span></div>
-          </div>
-        </div>
-
-        <div style="background: #F8FAFC; border: 2px solid #E2E8F0; border-radius: 16px; padding: 18px 24px; width: 100%; max-width: 500px; margin-bottom: 28px;">
-          <div style="font-size: 0.95rem; color: var(--text-muted); font-weight: 700;">總得分 Overall Score</div>
-          <div style="font-size: 2.8rem; font-weight: 900; color: var(--primary-color); margin: 4px 0;">${totalScore} <span style="font-size: 1.4rem; color: #64748B;">/ ${totalQuestions}</span></div>
-          <div style="font-size: 1.05rem; color: #334155; font-weight: 700;">正確率 Accuracy：${percentage}%</div>
-        </div>
-
-        <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
-          <button class="btn-start" style="padding: 12px 28px; font-size: 1.05rem; margin-top:0;" onclick="startFullQuiz()">🔄 再次挑戰本冊</button>
-          <button class="btn-start" style="padding: 12px 28px; font-size: 1.05rem; margin-top:0;" onclick="navigateTo('screen-menu')">📚 選擇其他書冊</button>
-        </div>
-      </div>
-    `;
-  }
-
-  // 格式化填空提示呈現底線
-  function formatBlankPrompt(text) {
-    if (!text) return "";
-    return text.replace(/_{2,}/g, '<span class="blank-underline">&nbsp;</span>');
-  }
-
-  // 渲染單題題目
-  function renderCurrentQuestion() {
-    if (!currentQuizData) return;
-    const container = document.getElementById('questionsContainer');
-    const questions = currentQuizData[currentPart] || [];
-
-    // 當前階段答完自動跳轉下一階段
-    if (currentIndex >= questions.length) {
-      if (currentPart === 'partA') {
-        currentPart = 'partB';
-        currentIndex = 0;
-        updateTabIndicator('partB');
-        renderCurrentQuestion();
-        return;
-      } else if (currentPart === 'partB') {
-        currentPart = 'partC';
-        currentIndex = 0;
-        updateTabIndicator('partC');
-        renderCurrentQuestion();
-        return;
-      } else if (currentPart === 'partC') {
-        renderFinalSummary();
-        return;
-      }
-    }
-
-    const q = questions[currentIndex];
-    const total = questions.length;
-    const progressPercent = ((currentIndex + 1) / total) * 100;
-    const spokenText = q.speakText || q.question || q.prompt || "";
-
-    const instructionText = (currentBookMeta && currentBookMeta.instructions) 
-      ? (currentBookMeta.instructions[currentPart] || "請依照題目要求作答。") 
-      : "請依照題目要求作答。";
-
-    const partLabel = currentPart === 'partA' ? 'Part A: 選擇題' : (currentPart === 'partB' ? 'Part B: 填空題' : 'Part C: 偵錯辨析');
-
-    let cardContent = `
-      <div class="progress-bar-container">
-        <span>${partLabel} — Question ${currentIndex + 1} / ${total}</span>
-        <div class="progress-track"><div class="progress-fill" style="width:${progressPercent}%"></div></div>
-      </div>
-      <div class="single-card">
-        <div class="part-instruction">
-          <span>📌</span>
-          <span>${instructionText}</span>
-        </div>
-    `;
-
-    if (currentPart === 'partA' || currentPart === 'partC') {
-      const displayQuestion = formatBlankPrompt(q.question || "選出最適當的選項：");
-      cardContent += `
-        <div class="card-question-text">
-          <span>${displayQuestion}</span>
-          ${spokenText ? `<button class="btn-audio" title="朗讀整句" onclick="playAccurateSpeech('${spokenText}')">🔊</button>` : ''}
-        </div>
-        ${q.hint ? `<div class="card-question-hint">提示：${q.hint}</div>` : ''}
-        <div class="card-options">
-          ${q.options.map((opt, idx) => `
-            <button class="option-btn" data-raw="${opt}" onclick="handleChoice(this, '${opt}', '${q.answer}')">
-              <span><strong>${String.fromCharCode(65 + idx)}.</strong> ${opt}</span>
-              <span class="status-icon"></span>
-            </button>
-          `).join('')}
-        </div>
-      `;
-    } else if (currentPart === 'partB') {
-      const displayPrompt = formatBlankPrompt(q.prompt || "請填入適當詞形：");
-      cardContent += `
-        <div class="card-question-text">
-          <span>${displayPrompt}</span>
-          ${spokenText ? `<button class="btn-audio" title="朗讀句子" onclick="playAccurateSpeech('${spokenText}')">🔊</button>` : ''}
-        </div>
-        ${q.hint ? `<div class="card-question-hint">💡 提示：${q.hint}</div>` : ''}
-        <div class="fill-group">
-          <input type="text" class="input-fill" id="fillInput" placeholder="在此輸入答案" autocomplete="off" onkeydown="if(event.key==='Enter') handleFill('${q.answer}')">
-          <button class="btn-submit-fill" onclick="handleFill('${q.answer}')">確認答案</button>
-        </div>
-        <div id="fillFeedback" style="font-weight:700; font-size:1.15rem; margin-top:16px; min-height:26px;"></div>
-        <button id="nextBtn" class="btn-next-action" style="display:none;" onclick="nextQuestion()">下一題 Next →</button>
-      `;
-    }
-
-    cardContent += `</div>`;
-    container.innerHTML = cardContent;
-
-    if (currentPart === 'partB') {
-      const input = document.getElementById('fillInput');
-      if (input) input.focus();
-    }
-  }
-
-  // 選擇題互動邏輯
-  function handleChoice(btn, selected, correct) {
-    const parent = btn.parentElement;
-    parent.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
-
-    const isRight = (selected.trim().toLowerCase() === correct.trim().toLowerCase());
-
-    if (isRight) {
-      btn.classList.add('correct');
-      btn.querySelector('.status-icon').innerText = '✓';
-      partScores[currentPart]++;
-    } else {
-      btn.classList.add('wrong');
-      btn.querySelector('.status-icon').innerText = '✗';
-      parent.querySelectorAll('.option-btn').forEach(b => {
-        const raw = b.getAttribute('data-raw') || "";
-        if (raw.trim().toLowerCase() === correct.trim().toLowerCase()) {
-          b.classList.add('correct');
-        }
-      });
-    }
-
-    setTimeout(() => {
-      currentIndex++;
-      renderCurrentQuestion();
-    }, 900);
-  }
-
-  // 填空題互動邏輯
-  function handleFill(correct) {
-    const input = document.getElementById('fillInput');
-    const feedback = document.getElementById('fillFeedback');
-    const nextBtn = document.getElementById('nextBtn');
-    if (!input || input.disabled) return;
-
-    const val = input.value.trim().toLowerCase();
-    const expected = correct.trim().toLowerCase();
-
-    input.disabled = true;
-
-    if (val === expected) {
-      feedback.style.color = 'var(--success)';
-      feedback.innerText = '✓ 太棒了！答對了！';
-      partScores[currentPart]++;
-    } else {
-      feedback.style.color = 'var(--danger)';
-      feedback.innerText = `✗ 正確答案是: ${correct}`;
-    }
-
-    nextBtn.style.display = 'inline-block';
-    nextBtn.focus();
-  }
-
-  function nextQuestion() {
-    currentIndex++;
-    renderCurrentQuestion();
-  }
-
-  // 預先載入語音
-  if ('speechSynthesis' in window) {
-    window.speechSynthesis.onvoiceschanged = () => {
-      window.speechSynthesis.getVoices();
-    };
-  }
-
-  // 初始化
   initThemeGrid();
 </script>
 
