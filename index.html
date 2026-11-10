@@ -9,7 +9,6 @@
       --primary-color: #3B82F6;
       --primary-dark: #1D4ED8;
       --accent-color: #F59E0B;
-      --accent-hover: #D97706;
       --bg-color: #F8FAFC;
       --card-bg: #FFFFFF;
       --text-main: #1F2937;
@@ -44,7 +43,7 @@
 
     .app-container {
       width: 100%;
-      max-width: 900px;
+      max-width: 860px;
       min-height: 720px;
       background: linear-gradient(165deg, #F0F6FD 0%, #E3EDF9 50%, #F5F9FD 100%);
       border-radius: 30px;
@@ -91,7 +90,7 @@
     .curved-header .title-badge {
       display: inline-block;
       position: relative;
-      padding: 0 28px;
+      padding: 0 32px;
     }
 
     .curved-header .title-line1 {
@@ -180,7 +179,7 @@
     .book-item {
       width: 155px;
       height: 220px;
-      border-radius: 12px;
+      border-radius: 14px;
       box-shadow: var(--book-shadow);
       cursor: pointer;
       position: relative;
@@ -191,10 +190,8 @@
       justify-content: space-between;
       padding: 14px 12px;
       color: #FFF;
-      border: 2px solid rgba(255, 255, 255, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.65);
       overflow: hidden;
-      background-size: cover;
-      background-position: center;
     }
 
     /* 書脊效果光暈 */
@@ -206,9 +203,10 @@
       bottom: 0;
       width: 12px;
       background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0.05) 75%, transparent);
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
       pointer-events: none;
+      z-index: 2;
     }
 
     .book-item::after {
@@ -220,9 +218,10 @@
       width: 4px;
       background: linear-gradient(to left, rgba(0,0,0,0.15), transparent);
       pointer-events: none;
+      z-index: 2;
     }
 
-    /* 預設五本書的配色 (提供高質感漸層展示) */
+    /* 預設五本書的配色 */
     .book-1 { background: linear-gradient(145deg, #3B82F6, #1D4ED8); }
     .book-2 { background: linear-gradient(145deg, #10B981, #047857); }
     .book-3 { background: linear-gradient(145deg, #F59E0B, #B45309); }
@@ -245,24 +244,51 @@
       border-color: #FFFFFF;
     }
 
+    .book-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 3;
+    }
+
     .book-tag {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
       padding: 3px 8px;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.28);
-      align-self: flex-start;
+      background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(4px);
+    }
+
+    .status-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 3px 7px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+    }
+    .status-badge.coming-soon {
+      background: rgba(15, 23, 42, 0.65);
+      color: #FDE047;
+      border: 1px solid rgba(253, 224, 71, 0.45);
+    }
+    .status-badge.ready {
+      background: rgba(16, 185, 129, 0.85);
+      color: #FFFFFF;
     }
 
     .book-main-title {
       text-align: center;
       margin: auto 0;
+      position: relative;
+      z-index: 3;
     }
     .book-level {
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 900;
       display: block;
       text-shadow: 0 2px 4px rgba(0,0,0,0.25);
@@ -282,9 +308,11 @@
       opacity: 0.85;
       border-top: 1px solid rgba(255,255,255,0.25);
       padding-top: 6px;
+      position: relative;
+      z-index: 3;
     }
 
-    /* 書封自訂圖片支援 (替換 src 時自動覆蓋背景) */
+    /* 書封圖片支援 */
     .book-cover-img {
       position: absolute;
       top: 0;
@@ -292,7 +320,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: none; /* 當用戶加入實體圖片時透過 JS 啟用 */
+      display: none;
       z-index: 1;
     }
 
@@ -325,7 +353,7 @@
       justify-content: center;
       align-items: center;
       padding: 10px 0;
-      gap: 24px;
+      gap: 22px;
     }
 
     .menu-cards-grid {
@@ -337,11 +365,98 @@
       margin: 10px 0;
     }
 
+    /* =========================================
+       製作中提示畫面 (Under Construction)
+       ========================================= */
+    #screen-construction {
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .construction-card {
+      width: 100%;
+      max-width: 580px;
+      background: #FFFFFF;
+      border: 2px solid #E2E8F0;
+      border-radius: 24px;
+      padding: 42px 28px;
+      text-align: center;
+      box-shadow: 0 16px 36px rgba(30, 58, 138, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .construction-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #3B82F6, #10B981, #F59E0B, #EC4899, #8B5CF6);
+    }
+
+    .construction-icon-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: #EFF6FF;
+      border: 3px dashed #93C5FD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: gentleBounce 2s infinite ease-in-out;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .construction-book-tag {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 20px;
+      background: #F1F5F9;
+      color: #3B82F6;
+      margin-bottom: 12px;
+    }
+
+    .construction-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #1E3A8A;
+      margin-bottom: 10px;
+    }
+
+    .construction-desc {
+      font-size: 1.05rem;
+      color: #64748B;
+      line-height: 1.6;
+      max-width: 440px;
+      margin-bottom: 28px;
+    }
+
+    .construction-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .book-select-card {
       background: #FFFFFF;
       border: 2px solid #E2E8F0;
       border-radius: 18px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       display: flex;
       align-items: center;
       gap: 16px;
@@ -363,9 +478,9 @@
     }
 
     .book-select-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       border-color: var(--card-color, var(--primary-color));
-      box-shadow: 0 12px 24px rgba(30, 58, 138, 0.15);
+      box-shadow: 0 12px 24px rgba(30, 58, 138, 0.14);
     }
 
     .book-badge-icon {
@@ -389,15 +504,22 @@
       flex: 1;
     }
 
-    .card-text .book-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #1E293B;
+    .card-text .book-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
       margin-bottom: 3px;
     }
 
+    .card-text .book-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #1E293B;
+    }
+
     .card-text .book-desc {
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       color: var(--text-muted);
       line-height: 1.35;
     }
@@ -568,6 +690,11 @@
       animation: fadeIn 0.3s ease-in-out;
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .card-question-text {
       font-size: 1.65rem;
       font-weight: 800;
@@ -713,6 +840,92 @@
       transform: scale(1.08);
     }
 
+    /* =========================================
+       彈出提示視窗 (Modal Overlay)
+       ========================================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease-out;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-dialog {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 32px 28px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+      transform: scale(0.92);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 3px solid #E2E8F0;
+    }
+    .modal-overlay.active .modal-dialog {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      width: 72px;
+      height: 72px;
+      background: #FEF3C7;
+      border: 3px solid #FCD34D;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 16px auto;
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1E293B;
+      margin-bottom: 10px;
+    }
+
+    .modal-message {
+      font-size: 0.98rem;
+      color: #64748B;
+      line-height: 1.55;
+      margin-bottom: 24px;
+      white-space: pre-line;
+    }
+
+    .modal-btn {
+      padding: 12px 42px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      background: var(--primary-color);
+      color: #FFF;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+    }
+    .modal-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
     /* RWD 適應手機與平板 */
     @media (max-width: 768px) {
       body { padding: 0; }
@@ -732,8 +945,9 @@
       
       .books-showcase { gap: 16px; margin-bottom: 24px; }
       .books-row { gap: 14px; }
-      .book-item { width: 100px; height: 145px; padding: 10px 8px; }
-      .book-tag { font-size: 0.6rem; padding: 2px 6px; }
+      .book-item { width: 105px; height: 152px; padding: 10px 8px; }
+      .book-tag { font-size: 0.58rem; padding: 2px 5px; }
+      .status-badge { font-size: 0.55rem; padding: 2px 5px; }
       .book-level { font-size: 1.2rem; }
       .book-sub { font-size: 0.65rem; }
       .book-footer { font-size: 0.6rem; }
@@ -763,9 +977,12 @@
       <!-- 五本書封展示區：上排 3 本、下排 2 本 -->
       <div class="books-showcase">
         <div class="books-row row-top">
-          <!-- Book 1 -->
-          <div class="book-item book-1" onclick="loadAndOpenTheme(1)" title="點選進入 Book 1 練習">
-            <span class="book-tag">Level 1</span>
+          <!-- Book 1 (已就緒) -->
+          <div class="book-item book-1" onclick="handleBookClick(1)" title="點選進入 Book 1 練習">
+            <div class="book-top-row">
+              <span class="book-tag">Level 1</span>
+              <span class="status-badge ready">已開放</span>
+            </div>
             <div class="book-main-title">
               <span class="book-level">Book 1</span>
               <span class="book-sub">Nouns &amp; Pronouns</span>
@@ -774,9 +991,12 @@
             <img src="./images/grammar_book1.png" alt="Book 1" class="book-cover-img" onerror="this.style.display='none'">
           </div>
 
-          <!-- Book 2 -->
-          <div class="book-item book-2" onclick="loadAndOpenTheme(2)" title="點選進入 Book 2 練習">
-            <span class="book-tag">Level 2</span>
+          <!-- Book 2 (製作中) -->
+          <div class="book-item book-2" onclick="handleBookClick(2)" title="點選進入 Book 2 練習">
+            <div class="book-top-row">
+              <span class="book-tag">Level 2</span>
+              <span class="status-badge coming-soon">製作中</span>
+            </div>
             <div class="book-main-title">
               <span class="book-level">Book 2</span>
               <span class="book-sub">Present Tense &amp; Be</span>
@@ -785,9 +1005,12 @@
             <img src="./images/grammar_book2.png" alt="Book 2" class="book-cover-img" onerror="this.style.display='none'">
           </div>
 
-          <!-- Book 3 -->
-          <div class="book-item book-3" onclick="loadAndOpenTheme(3)" title="點選進入 Book 3 練習">
-            <span class="book-tag">Level 3</span>
+          <!-- Book 3 (製作中) -->
+          <div class="book-item book-3" onclick="handleBookClick(3)" title="點選進入 Book 3 練習">
+            <div class="book-top-row">
+              <span class="book-tag">Level 3</span>
+              <span class="status-badge coming-soon">製作中</span>
+            </div>
             <div class="book-main-title">
               <span class="book-level">Book 3</span>
               <span class="book-sub">Adjectives &amp; Preps</span>
@@ -798,9 +1021,12 @@
         </div>
 
         <div class="books-row row-bottom">
-          <!-- Book 4 -->
-          <div class="book-item book-4" onclick="loadAndOpenTheme(4)" title="點選進入 Book 4 練習">
-            <span class="book-tag">Level 4</span>
+          <!-- Book 4 (製作中) -->
+          <div class="book-item book-4" onclick="handleBookClick(4)" title="點選進入 Book 4 練習">
+            <div class="book-top-row">
+              <span class="book-tag">Level 4</span>
+              <span class="status-badge coming-soon">製作中</span>
+            </div>
             <div class="book-main-title">
               <span class="book-level">Book 4</span>
               <span class="book-sub">Past Tense &amp; Modals</span>
@@ -809,9 +1035,12 @@
             <img src="./images/grammar_book4.png" alt="Book 4" class="book-cover-img" onerror="this.style.display='none'">
           </div>
 
-          <!-- Book 5 -->
-          <div class="book-item book-5" onclick="loadAndOpenTheme(5)" title="點選進入 Book 5 練習">
-            <span class="book-tag">Level 5</span>
+          <!-- Book 5 (製作中) -->
+          <div class="book-item book-5" onclick="handleBookClick(5)" title="點選進入 Book 5 練習">
+            <div class="book-top-row">
+              <span class="book-tag">Level 5</span>
+              <span class="status-badge coming-soon">製作中</span>
+            </div>
             <div class="book-main-title">
               <span class="book-level">Book 5</span>
               <span class="book-sub">Conjunctions &amp; Clauses</span>
@@ -842,7 +1071,31 @@
     <button class="back-btn-pill" onclick="navigateTo('screen-cover')">← 回到主頁</button>
   </section>
 
-  <!-- 3. 測驗進行頁 -->
+  <!-- 3. 題庫製作中畫面 (Under Construction) -->
+  <section id="screen-construction" class="view-screen">
+    <div class="curved-header">
+      <div class="title-badge">
+        <div class="title-line1">Grammar</div>
+        <div class="title-line2">for young learners</div>
+      </div>
+      <div class="header-curve-line"></div>
+    </div>
+
+    <div class="construction-card">
+      <div class="construction-icon-wrap" id="constructionIcon">📚</div>
+      <div class="construction-book-tag" id="constructionBookTag">Book 1 · Nouns &amp; Pronouns</div>
+      <h2 class="construction-title">題庫正在製作中...</h2>
+      <p class="construction-desc">
+        這本書的文法測驗題庫與精彩練習單元目前正在精心編寫校對中！敬請期待即將推出的全新互動題目。
+      </p>
+      <div class="construction-actions">
+        <button class="btn-start" style="padding: 12px 30px; font-size: 1.05rem; margin-top: 0;" onclick="navigateTo('screen-menu')">📚 回書籍目錄</button>
+        <button class="back-btn-pill" onclick="navigateTo('screen-cover')">🏠 回首頁</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 測驗進行頁 (保留架構供日後題庫對接) -->
   <section id="screen-quiz" class="view-screen">
     <div class="nav-bar">
       <button class="quiz-back-btn" onclick="navigateTo('screen-menu')">← 回書籍目錄</button>
@@ -894,7 +1147,7 @@
   document.addEventListener('click', unlockAudioForMobile, { once: true });
   document.addEventListener('touchstart', unlockAudioForMobile, { once: true });
 
-  // ====== 3. 五本書冊的設定與內建 Demo 題庫 (隨時可替換外部 JSON) ======
+  // ====== 3. 五本書冊的設定與直接內建 Demo 題庫 ======
   const booksConfig = [
     {
       id: 1,
@@ -902,26 +1155,28 @@
       bookTitle: "Book 1",
       topic: "Nouns & Pronouns",
       fullTheme: "Nouns, Articles & Subject Pronouns",
-      scope: "名詞單複數 (-s, -es)、定冠詞與不定冠詞 (a, an, the)、人稱代名詞 (I, You, He, She, It, They)",
+      scope: "名詞單複數變化 (-s, -es)、定冠詞與不定冠詞 (a, an, the)、人稱代名詞 (I, You, He, She, It, We, They)",
       instructions: {
         partA: "Part A: 根據文法規則，選出最合適的選項填入空格。",
-        partB: "Part B: 依句意及括號提示，填入正確的文法單字（大小寫不拘）。",
-        partC: "Part C: 仔細聆聽句子，選出文法正確的句子或代名詞。"
+        partB: "Part B: 依句意及括號提示，填入正確的單字（可按 Enter 提交）。",
+        partC: "Part C: 仔細聆聽句子，選出文法正確的句子或代名詞用法。"
       },
-      // 內建示範題目 (若有對應 book01.json 也可自動載入)
       questions: {
         partA: [
           { question: "This is _____ apple on the teacher's desk.", options: ["a", "an", "the", "two"], answer: "an", speakText: "This is an apple on the teacher's desk." },
           { question: "Look at the sky! _____ are three birds flying.", options: ["There", "Their", "They're", "They"], answer: "There", speakText: "Look at the sky! There are three birds flying." },
-          { question: "My mother is a doctor. _____ works at a hospital.", options: ["He", "She", "It", "They"], answer: "She", speakText: "My mother is a doctor. She works at a hospital." }
+          { question: "My mother is a doctor. _____ works at a hospital.", options: ["He", "She", "It", "They"], answer: "She", speakText: "My mother is a doctor. She works at a hospital." },
+          { question: "I see three small _____ in the kitchen.", options: ["mouse", "mouses", "mice", "mices"], answer: "mice", speakText: "I see three small mice in the kitchen." }
         ],
         partB: [
-          { prompt: "I have two _____ (box) on my table.", hint: "注意 box 的複數形 (-es)", answer: "boxes", speakText: "I have two boxes on my table." },
-          { prompt: "_____ (He) is my best friend Jack.", hint: "主格代名詞", answer: "He", speakText: "He is my best friend Jack." }
+          { prompt: "I have two _____ (box) on my table.", hint: "注意 box 的複數結尾 (-es)", answer: "boxes", speakText: "I have two boxes on my table." },
+          { prompt: "_____ (He) is my best friend Jack.", hint: "填入人稱主格代名詞", answer: "He", speakText: "He is my best friend Jack." },
+          { prompt: "Can you give me _____ (a/an) orange?", hint: "母音發音開頭使用 an", answer: "an", speakText: "Can you give me an orange?" }
         ],
         partC: [
           { question: "選出文法完全正確的句子：", options: ["She have a cat.", "She has an cat.", "She has a cat."], answer: "She has a cat.", speakText: "She has a cat." },
-          { question: "聽語音選出正確名詞複數：", options: ["three childs", "three children", "three childrens"], answer: "three children", speakText: "three children" }
+          { question: "聽語音選出正確的名詞複數形態：", options: ["three childs", "three children", "three childrens"], answer: "three children", speakText: "three children" },
+          { question: "選出代名詞使用無誤的句子：", options: ["Me and him went to school.", "He and I went to school.", "Him and me went to school."], answer: "He and I went to school.", speakText: "He and I went to school." }
         ]
       }
     },
@@ -931,25 +1186,28 @@
       bookTitle: "Book 2",
       topic: "Present Tense & Verbs",
       fullTheme: "Simple Present & Present Continuous",
-      scope: "現在簡單式 (主詞第三人稱單數動詞變化)、現在進行式 (be + V-ing)、be動詞 (am, is, are)",
+      scope: "現在簡單式 (第三人稱單數動詞 +s/-es)、現在進行式 (be + V-ing)、be動詞 (am, is, are)",
       instructions: {
         partA: "Part A: 選出合適的動詞形式填入句子。",
         partB: "Part B: 將括號中的動詞轉換為正確時態形式填入。",
-        partC: "Part C: 聽音並判斷正在進行或一般習慣的正確描述。"
+        partC: "Part C: 聽音並判斷正在進行或一般習慣的正確句型。"
       },
       questions: {
         partA: [
           { question: "Tom always _____ his teeth before bed.", options: ["brush", "brushes", "brushing", "brushed"], answer: "brushes", speakText: "Tom always brushes his teeth before bed." },
           { question: "Listen! The baby _____ in the bedroom.", options: ["cry", "cries", "is crying", "are crying"], answer: "is crying", speakText: "Listen! The baby is crying in the bedroom." },
-          { question: "We _____ happy students at this school.", options: ["am", "is", "are", "be"], answer: "are", speakText: "We are happy students at this school." }
+          { question: "We _____ students at Happy Elementary School.", options: ["am", "is", "are", "be"], answer: "are", speakText: "We are students at Happy Elementary School." },
+          { question: "_____ your sister like eating strawberries?", options: ["Do", "Does", "Is", "Are"], answer: "Does", speakText: "Does your sister like eating strawberries?" }
         ],
         partB: [
-          { prompt: "The sun _____ (rise) in the east every morning.", hint: "第三人稱單數現在式", answer: "rises", speakText: "The sun rises in the east every morning." },
-          { prompt: "Look! They are _____ (play) soccer in the park.", hint: "進行式 V-ing", answer: "playing", speakText: "Look! They are playing soccer in the park." }
+          { prompt: "The sun _____ (rise) in the east every morning.", hint: "第三人稱單數現在簡單式", answer: "rises", speakText: "The sun rises in the east every morning." },
+          { prompt: "Look! They are _____ (play) soccer in the park.", hint: "進行式加 ing", answer: "playing", speakText: "Look! They are playing soccer in the park." },
+          { prompt: "He _____ (not like) cold milk in the morning.", hint: "否定句填 doesn't like", answer: "doesn't like", speakText: "He doesn't like cold milk in the morning." }
         ],
         partC: [
           { question: "選出疑問句文法正確者：", options: ["Does he likes apples?", "Do he like apples?", "Does he like apples?"], answer: "Does he like apples?", speakText: "Does he like apples?" },
-          { question: "聽語音選出句子：", options: ["I am reading a comic book.", "I reading a comic book.", "I be reading a comic book."], answer: "I am reading a comic book.", speakText: "I am reading a comic book." }
+          { question: "聽語音選出當下正在進行的正確句子：", options: ["I am reading a comic book.", "I reading a comic book.", "I be reading a comic book."], answer: "I am reading a comic book.", speakText: "I am reading a comic book." },
+          { question: "選出第三人稱動詞變化完全正確的一組：", options: ["go - gos", "study - studys", "watch - watches"], answer: "watch - watches", speakText: "watch, watches" }
         ]
       }
     },
@@ -959,7 +1217,7 @@
       bookTitle: "Book 3",
       topic: "Adjectives & Prepositions",
       fullTheme: "Adjectives, Comparatives & Prepositions of Place",
-      scope: "形容詞比較級與最高級 (-er, -est, more, most)、介系詞 (in, on, under, next to, behind)",
+      scope: "形容詞原級、比較級與最高級 (-er, -est, more, most)、地方介系詞 (in, on, under, behind, next to)",
       instructions: {
         partA: "Part A: 根據位置或比較關係，選出最佳答案。",
         partB: "Part B: 依題意填入正確的形容詞形態或介系詞。",
@@ -967,17 +1225,20 @@
       },
       questions: {
         partA: [
-          { question: "An elephant is _____ than a mouse.", options: ["big", "bigger", "biggest", "more big"], answer: "bigger", speakText: "An elephant is bigger than a mouse." },
-          { question: "The cat is sleeping _____ the rug on the floor.", options: ["on", "at", "between", "over"], answer: "on", speakText: "The cat is sleeping on the rug on the floor." },
-          { question: "Who is the _____ student in your class?", options: ["tall", "taller", "tallest", "most tall"], answer: "tallest", speakText: "Who is the tallest student in your class?" }
+          { question: "An elephant is _____ than a brown bear.", options: ["big", "bigger", "biggest", "more big"], answer: "bigger", speakText: "An elephant is bigger than a brown bear." },
+          { question: "The cat is sleeping _____ the soft rug on the floor.", options: ["on", "at", "between", "over"], answer: "on", speakText: "The cat is sleeping on the soft rug on the floor." },
+          { question: "Who is the _____ student in your whole class?", options: ["tall", "taller", "tallest", "most tall"], answer: "tallest", speakText: "Who is the tallest student in your whole class?" },
+          { question: "The library is _____ the post office and the bank.", options: ["next", "between", "among", "inside"], answer: "between", speakText: "The library is between the post office and the bank." }
         ],
         partB: [
-          { prompt: "Winter is _____ (cold) than spring.", hint: "填入形容詞比較級", answer: "colder", speakText: "Winter is colder than spring." },
-          { prompt: "The book is _____ the table (在...上面).", hint: "介系詞 (2 個字母)", answer: "on", speakText: "The book is on the table." }
+          { prompt: "Winter is _____ (cold) than spring.", hint: "填入形容詞比較級 (-er)", answer: "colder", speakText: "Winter is colder than spring." },
+          { prompt: "The pencil fell _____ the desk (在...底下).", hint: "介系詞 (以 u 開頭)", answer: "under", speakText: "The pencil fell under the desk." },
+          { prompt: "Health is _____ (important) than money.", hint: "多音節比較級加 more", answer: "more important", speakText: "Health is more important than money." }
         ],
         partC: [
-          { question: "選出正確的最高級用法：", options: ["He is the faster runner.", "He is the fastest runner.", "He is most fastest runner."], answer: "He is the fastest runner.", speakText: "He is the fastest runner." },
-          { question: "聽語音選出位置關係：", options: ["under the bed", "between the bed", "in the bed"], answer: "under the bed", speakText: "under the bed" }
+          { question: "選出正確的最高級用法句子：", options: ["He is the faster runner in school.", "He is the fastest runner in school.", "He is most fastest runner in school."], answer: "He is the fastest runner in school.", speakText: "He is the fastest runner in school." },
+          { question: "聽語音選出正確介系詞片語：", options: ["under the bed", "between the bed", "inside of bed"], answer: "under the bed", speakText: "under the bed" },
+          { question: "選出形容詞比較級拼寫正確者：", options: ["good - gooder", "good - better", "good - best"], answer: "good - better", speakText: "good, better" }
         ]
       }
     },
@@ -986,26 +1247,29 @@
       color: "#EC4899",
       bookTitle: "Book 4",
       topic: "Past Tense & Modals",
-      fullTheme: "Simple Past & Modal Verbs (Can, May, Must)",
-      scope: "過去簡單式規則與不規則動詞 (went, saw, played)、情態助動詞 (can, could, must, should)",
+      fullTheme: "Simple Past & Modal Verbs (Can, Could, Must, Should)",
+      scope: "過去簡單式規則動詞 (-ed) 與不規則動詞 (went, saw, ate)、情態助動詞 (can, could, must, should)",
       instructions: {
         partA: "Part A: 選出符合過去時間或情態助動詞的用法。",
-        partB: "Part B: 填入正確的過去式不規則動詞或原形動詞。",
+        partB: "Part B: 填入正確的過去式動詞或原形動詞。",
         partC: "Part C: 聽音判斷句子的時間與語意狀態。"
       },
       questions: {
         partA: [
-          { question: "Yesterday, we _____ to the zoo and saw lions.", options: ["go", "goes", "went", "going"], answer: "went", speakText: "Yesterday, we went to the zoo and saw lions." },
-          { question: "You _____ finish your homework before watching TV.", options: ["must", "can to", "should to", "are"], answer: "must", speakText: "You must finish your homework before watching TV." },
-          { question: "Did you _____ the science museum last week?", options: ["visit", "visited", "visiting", "visits"], answer: "visit", speakText: "Did you visit the science museum last week?" }
+          { question: "Yesterday, our family _____ to the national museum.", options: ["go", "goes", "went", "going"], answer: "went", speakText: "Yesterday, our family went to the national museum." },
+          { question: "You _____ finish your project before watching television.", options: ["must", "can to", "should to", "are"], answer: "must", speakText: "You must finish your project before watching television." },
+          { question: "Did you _____ the famous movie last weekend?", options: ["watch", "watched", "watching", "watches"], answer: "watch", speakText: "Did you watch the famous movie last weekend?" },
+          { question: "Two years ago, I _____ speak English fluently.", options: ["couldn't", "can't", "not can", "won't"], answer: "couldn't", speakText: "Two years ago, I couldn't speak English fluently." }
         ],
         partB: [
-          { prompt: "I _____ (see) a shooting star last night.", hint: "see 的過去式", answer: "saw", speakText: "I saw a shooting star last night." },
-          { prompt: "She can _____ (swim) across the pool.", hint: "助動詞後接原形動詞", answer: "swim", speakText: "She can swim across the pool." }
+          { prompt: "I _____ (see) a shooting star in the sky last night.", hint: "see 的過去式不規則變化", answer: "saw", speakText: "I saw a shooting star in the sky last night." },
+          { prompt: "She can _____ (swim) across the Olympic pool.", hint: "情態助動詞後接原形動詞", answer: "swim", speakText: "She can swim across the Olympic pool." },
+          { prompt: "We _____ (eat) delicious pizza for dinner yesterday.", hint: "eat 的過去式", answer: "ate", speakText: "We ate delicious pizza for dinner yesterday." }
         ],
         partC: [
-          { question: "選出過去式否定句正確者：", options: ["He didn't went home.", "He didn't go home.", "He doesn't went home."], answer: "He didn't go home.", speakText: "He didn't go home." },
-          { question: "聽語音選出時態正確的句子：", options: ["They played football yesterday.", "They play football yesterday.", "They will play football yesterday."], answer: "They played football yesterday.", speakText: "They played football yesterday." }
+          { question: "選出過去式否定句文法正確者：", options: ["He didn't went to church.", "He didn't go to church.", "He doesn't went to church."], answer: "He didn't go to church.", speakText: "He didn't go to church." },
+          { question: "聽語音選出時態與時間副詞相符的句子：", options: ["They played football yesterday.", "They play football yesterday.", "They will play football yesterday."], answer: "They played football yesterday.", speakText: "They played football yesterday." },
+          { question: "選出助動詞用法正確無誤者：", options: ["He must to wash his hands.", "He must washing his hands.", "He must wash his hands."], answer: "He must wash his hands.", speakText: "He must wash his hands." }
         ]
       }
     },
@@ -1015,25 +1279,28 @@
       bookTitle: "Book 5",
       topic: "Conjunctions & Clauses",
       fullTheme: "Conjunctions, Future Tense & Compound Sentences",
-      scope: "連接詞 (and, but, because, so)、未來式 (will, be going to)、簡易條件句 (if)",
+      scope: "對等連接詞 (and, but, or, so)、從屬連接詞 (because, although, if)、未來式 (will, be going to)",
       instructions: {
-        partA: "Part A: 根據邏輯關係選出適當的連接詞或未來式動詞。",
-        partB: "Part B: 根據句意填入正確的連接詞或助動詞。",
+        partA: "Part A: 根據前後句邏輯選出最合適的連接詞或未來動詞。",
+        partB: "Part B: 根據句意填入正確的連接詞或未來式動詞。",
         partC: "Part C: 聽音選出因果與複合句結構正確者。"
       },
       questions: {
         partA: [
-          { question: "I wanted to go to the park, _____ it started to rain.", options: ["and", "but", "so", "because"], answer: "but", speakText: "I wanted to go to the park, but it started to rain." },
-          { question: "Tomorrow, my family _____ travel to Tainan.", options: ["will", "did", "is", "was"], answer: "will", speakText: "Tomorrow, my family will travel to Tainan." },
-          { question: "He wore a thick jacket _____ it was very cold outside.", options: ["because", "but", "or", "although"], answer: "because", speakText: "He wore a thick jacket because it was very cold outside." }
+          { question: "I wanted to go to the park, _____ it started to rain heavily.", options: ["and", "but", "so", "because"], answer: "but", speakText: "I wanted to go to the park, but it started to rain heavily." },
+          { question: "Tomorrow, our school band _____ travel to Tainan for competition.", options: ["will", "did", "was", "has"], answer: "will", speakText: "Tomorrow, our school band will travel to Tainan for competition." },
+          { question: "He wore a thick coat _____ it was extremely cold outside.", options: ["because", "but", "or", "although"], answer: "because", speakText: "He wore a thick coat because it was extremely cold outside." },
+          { question: "If it _____ sunny this weekend, we will go camping.", options: ["is", "will be", "was", "are"], answer: "is", speakText: "If it is sunny this weekend, we will go camping." }
         ],
         partB: [
-          { prompt: "Hurry up, _____ (否則) you will miss the school bus.", hint: "連接詞 (2 個字母)", answer: "or", speakText: "Hurry up, or you will miss the school bus." },
-          { prompt: "We are going to _____ (visit) grandma this Sunday.", hint: "be going to 後接原形動詞", answer: "visit", speakText: "We are going to visit grandma this Sunday." }
+          { prompt: "Hurry up, _____ (否則) you will miss the morning school bus.", hint: "連接詞 (2 個字母，表否則)", answer: "or", speakText: "Hurry up, or you will miss the morning school bus." },
+          { prompt: "We are going to _____ (visit) our grandparents this Sunday.", hint: "be going to 後接原形動詞", answer: "visit", speakText: "We are going to visit our grandparents this Sunday." },
+          { prompt: "She studied very hard, _____ (所以) she passed the exam.", hint: "結果連接詞 (2 個字母)", answer: "so", speakText: "She studied very hard, so she passed the exam." }
         ],
         partC: [
-          { question: "選出複合句文法無誤者：", options: ["Although it was hot, but he ran fast.", "Although it was hot, he ran fast.", "Because it was hot, so he drank water."], answer: "Although it was hot, he ran fast.", speakText: "Although it was hot, he ran fast." },
-          { question: "聽語音選出因果關係：", options: ["She studied hard, so she passed the test.", "She studied hard, because she passed the test.", "She studied hard, but she passed the test."], answer: "She studied hard, so she passed the test.", speakText: "She studied hard, so she passed the test." }
+          { question: "選出英文複合句中避免雙重連接詞的正確句子：", options: ["Although it was hot, but he ran fast.", "Although it was hot, he ran fast.", "Because it was hot, so he drank water."], answer: "Although it was hot, he ran fast.", speakText: "Although it was hot, he ran fast." },
+          { question: "聽語音選出前後因果關係最符合邏輯的句子：", options: ["She was sleepy, so she went to sleep early.", "She was sleepy, because she went to sleep early.", "She was sleepy, but she went to sleep early."], answer: "She was sleepy, so she went to sleep early.", speakText: "She was sleepy, so she went to sleep early." },
+          { question: "選出未來式句型正確無誤者：", options: ["I will to call you tonight.", "I am going call you tonight.", "I will call you tonight."], answer: "I will call you tonight.", speakText: "I will call you tonight." }
         ]
       }
     }
@@ -1086,36 +1353,23 @@
     return arr;
   }
 
-  // 載入指定書籍題庫 (支援外部 JSON 回退至內建 Demo)
-  async function loadAndOpenTheme(bookId) {
+  // 點擊任一本書：顯示「題庫正在製作中」畫面
+  function loadAndOpenTheme(bookId) {
     currentBookMeta = booksConfig.find(b => b.id === bookId);
     if (!currentBookMeta) return;
 
-    document.getElementById('currentThemeTag').innerText = `${currentBookMeta.bookTitle} - ${currentBookMeta.topic}`;
-    document.getElementById('scopeTitle').innerHTML = `📖 適用範圍：${currentBookMeta.fullTheme}`;
-    document.getElementById('scopeDetail').innerText = currentBookMeta.scope;
-
-    const container = document.getElementById('questionsContainer');
-    container.innerHTML = `<div style="color:var(--text-muted); font-size:1.15rem; font-weight:700; padding:40px 0;">載入題庫中...</div>`;
-    navigateTo('screen-quiz');
-
-    // 嘗試抓取外部同名 JSON (例如 ./grammar01.json)，若無則直接使用內建 questions
-    try {
-      const response = await fetch(`./grammar0${bookId}.json`);
-      if (response.ok) {
-        currentQuizData = await response.json();
-      } else {
-        // 使用 Demo 內建題庫
-        currentQuizData = JSON.parse(JSON.stringify(currentBookMeta.questions));
-      }
-    } catch (e) {
-      currentQuizData = JSON.parse(JSON.stringify(currentBookMeta.questions));
+    // 更新製作中畫面的冊數標籤與代表圖標
+    const tag = document.getElementById('constructionBookTag');
+    if (tag) {
+      tag.innerText = `${currentBookMeta.bookTitle} · ${currentBookMeta.topic}`;
+      tag.style.color = currentBookMeta.color;
+      tag.style.background = `${currentBookMeta.color}18`;
     }
 
-    startFullQuiz();
+    navigateTo('screen-construction');
   }
 
-  // 開始闖關
+  // 開始闖關 (供日後題庫完成時直接切換調用)
   function startFullQuiz() {
     partScores = { partA: 0, partB: 0, partC: 0 };
     currentPart = 'partA';
