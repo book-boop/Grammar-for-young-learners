@@ -6,16 +6,14 @@
   <title>Grammar for young learners</title>
   <style>
     :root {
-      --primary-color: #3B82F6;
-      --primary-dark: #1D4ED8;
-      --accent-color: #F59E0B;
+      --primary-color: #3182CE;
+      --accent-color: #FFB300;
       --bg-color: #F8FAFC;
       --card-bg: #FFFFFF;
-      --text-main: #1F2937;
-      --text-muted: #64748B;
-      --success: #10B981;
-      --danger: #EF4444;
-      --book-shadow: 0 16px 30px rgba(30, 58, 138, 0.22);
+      --text-main: #2D3748;
+      --text-muted: #718096;
+      --success: #38A169;
+      --danger: #E53E3E;
     }
 
     * { 
@@ -23,7 +21,6 @@
       margin: 0; 
       padding: 0; 
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-      -webkit-tap-highlight-color: transparent;
     }
 
     body { 
@@ -32,33 +29,32 @@
       justify-content: center; 
       align-items: center; 
       color: var(--text-main);
-      background: radial-gradient(circle at 12% 15%, rgba(59, 130, 246, 0.32), transparent 45%),
-                  radial-gradient(circle at 88% 18%, rgba(239, 68, 68, 0.24), transparent 45%),
-                  radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.28), transparent 45%),
-                  radial-gradient(circle at 85% 82%, rgba(139, 92, 246, 0.25), transparent 45%),
-                  #DDE7F3;
+      background: radial-gradient(circle at 10% 15%, rgba(74, 144, 226, 0.35), transparent 45%),
+                  radial-gradient(circle at 90% 15%, rgba(229, 62, 62, 0.28), transparent 45%),
+                  radial-gradient(circle at 15% 85%, rgba(255, 179, 0, 0.32), transparent 45%),
+                  radial-gradient(circle at 85% 85%, rgba(128, 90, 213, 0.28), transparent 45%),
+                  #DCE6F2;
       background-attachment: fixed;
-      padding: 24px 12px;
+      padding: 20px 0;
     }
 
     .app-container {
       width: 100%;
-      max-width: 880px;
-      min-height: 720px;
-      background: linear-gradient(165deg, #F0F6FD 0%, #E3EDF9 50%, #F5F9FD 100%);
-      border-radius: 30px;
+      max-width: 900px;
+      background: linear-gradient(165deg, #EBF3FA 0%, #DFEAF7 50%, #EEF5FC 100%);
+      border-radius: 28px;
       border: 3.5px solid #FFFFFF;
       box-shadow: 
-        0 24px 50px -10px rgba(28, 55, 96, 0.25),
-        0 8px 18px -4px rgba(28, 55, 96, 0.12),
+        0 24px 48px -12px rgba(30, 64, 110, 0.28),
+        0 8px 16px -4px rgba(30, 64, 110, 0.15),
         inset 0 2px 4px rgba(255, 255, 255, 0.95),
-        inset 0 -2px 4px rgba(59, 130, 246, 0.12);
+        inset 0 -2px 4px rgba(74, 144, 226, 0.15);
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
-      margin: auto;
-      padding: 36px 36px;
+      margin: 15px 20px;
+      padding: 35px 35px;
     }
 
     .view-screen { 
@@ -69,458 +65,281 @@
     }
     .view-screen.active { 
       display: flex; 
-      animation: screenFade 0.35s ease-out;
     }
 
-    @keyframes screenFade {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* =========================================
-       兩行式弧形 Header (Grammar / for young learners)
-       ========================================= */
+    /* 弧形兩行式標題 */
     .curved-header { 
       text-align: center; 
-      margin-bottom: 26px; 
+      margin-bottom: 24px; 
       position: relative; 
       width: 100%; 
     }
-
-    .curved-header .title-badge {
-      display: inline-block;
+    .header-brackets-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      padding: 0 32px;
+      padding: 0 38px;
     }
-
-    .curved-header .title-line1 {
-      font-size: 3.1rem;
-      font-weight: 900;
-      letter-spacing: 2.5px;
-      color: #1E3A8A;
-      line-height: 1.1;
-      text-transform: uppercase;
-    }
-
-    .curved-header .title-line2 {
-      font-size: 1.55rem;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      color: #3B82F6;
-      margin-top: 2px;
-      display: block;
-      font-style: italic;
-    }
-
-    .curved-header .title-badge::before {
+    .header-brackets-wrapper::before {
       content: "(";
       position: absolute;
       left: 0;
-      top: 42%;
-      transform: translateY(-50%);
-      font-size: 3.4rem;
+      top: 50%;
+      transform: translateY(-52%);
+      font-size: 3.8rem;
       font-weight: 300;
       color: #94A3B8;
+      line-height: 1;
     }
-    .curved-header .title-badge::after {
+    .header-brackets-wrapper::after {
       content: ")";
       position: absolute;
       right: 0;
-      top: 42%;
-      transform: translateY(-50%);
-      font-size: 3.4rem;
+      top: 50%;
+      transform: translateY(-52%);
+      font-size: 3.8rem;
       font-weight: 300;
       color: #94A3B8;
+      line-height: 1;
     }
 
-    .header-curve-line {
-      width: 320px;
-      height: 18px;
-      border: solid 3px #94A3B8;
-      border-color: #94A3B8 transparent transparent transparent;
-      border-radius: 50%/16px 16px 0 0;
-      margin: 2px auto 0 auto;
-    }
-
-    /* =========================================
-       1. 扉頁 (5 本書書封展示)
-       ========================================= */
-    #screen-cover {
+    .header-text-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      padding: 10px 0;
+    }
+    .header-title-main {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      color: #1A365D;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .header-title-sub {
+      font-size: 1.45rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #3182CE;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+    .header-curve-line {
+      width: 290px;
+      height: 16px;
+      border: solid 3px #CBD5E1;
+      border-color: #CBD5E1 transparent transparent transparent;
+      border-radius: 50%/14px 14px 0 0;
+      margin: 8px auto 0 auto;
     }
 
-    .hero-content {
+    /* 首頁封面陳列 (上 3 下 2) */
+    .books-display {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 22px;
       width: 100%;
+      margin-top: 8px;
+      margin-bottom: 30px;
     }
-
-    .books-showcase {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      width: 100%;
-      margin: 10px 0 32px 0;
-    }
-
     .books-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 26px;
-      flex-wrap: wrap;
+      gap: 24px;
     }
 
-    /* 書本外框與陰影 */
     .book-item {
-      width: 160px;
-      height: 228px;
-      border-radius: 12px;
-      box-shadow: var(--book-shadow);
-      cursor: pointer;
       position: relative;
-      transition: all 0.32s cubic-bezier(0.25, 0.8, 0.25, 1);
-      user-select: none;
+      cursor: pointer;
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 14px 28px rgba(30, 64, 110, 0.22);
       overflow: hidden;
-      background-color: #FFFFFF;
-      border: 2px solid rgba(255, 255, 255, 0.9);
+      background: #FFFFFF;
       display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+    .book-item img {
+      width: 155px;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .book-item:hover {
+      transform: translateY(-10px) scale(1.06) rotate(0deg) !important;
+      box-shadow: 0 22px 36px rgba(30, 64, 110, 0.32);
+      z-index: 10;
     }
 
-    /* 書脊立體微陰影光澤 */
-    .book-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 14px;
-      background: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.02) 80%, transparent);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .book-item::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 6px;
-      background: linear-gradient(to left, rgba(0,0,0,0.12), transparent);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    /* 上排三本自然微旋轉 */
+    /* 角度旋轉層次 */
     .row-top .book-item:nth-child(1) { transform: rotate(-4deg); }
-    .row-top .book-item:nth-child(2) { transform: rotate(0deg) translateY(-6px); }
+    .row-top .book-item:nth-child(2) { transform: rotate(0deg) translateY(-4px); }
     .row-top .book-item:nth-child(3) { transform: rotate(4deg); }
-
-    /* 下排兩本微旋轉 */
     .row-bottom .book-item:nth-child(1) { transform: rotate(-3deg); }
     .row-bottom .book-item:nth-child(2) { transform: rotate(3deg); }
 
-    .book-item:hover {
-      transform: translateY(-12px) scale(1.08) rotate(0deg) !important;
-      box-shadow: 0 24px 42px rgba(30, 58, 138, 0.35);
-      z-index: 10;
-      border-color: #FFFFFF;
-    }
-
-    /* 書封圖片 (優先載入真實 png 圖片) */
-    .book-cover-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* 圖片載入失敗時的後備設計展示 */
-    .book-fallback-view {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 14px 12px;
-      color: #FFF;
-      z-index: 2;
-    }
-    .book-1-bg { background: linear-gradient(145deg, #3B82F6, #1D4ED8); }
-    .book-2-bg { background: linear-gradient(145deg, #10B981, #047857); }
-    .book-3-bg { background: linear-gradient(145deg, #F59E0B, #B45309); }
-    .book-4-bg { background: linear-gradient(145deg, #EC4899, #BE185D); }
-    .book-5-bg { background: linear-gradient(145deg, #8B5CF6, #6D28D9); }
-
-    .book-tag {
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.28);
-      align-self: flex-start;
-    }
-
-    .book-main-title {
-      text-align: center;
-      margin: auto 0;
-    }
-    .book-level {
-      font-size: 1.65rem;
-      font-weight: 900;
-      display: block;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.25);
-    }
-    .book-sub {
-      font-size: 0.82rem;
-      font-weight: 600;
-      opacity: 0.95;
-      margin-top: 4px;
-    }
-
-    .book-footer {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-align: center;
-      opacity: 0.85;
-      border-top: 1px solid rgba(255,255,255,0.25);
-      padding-top: 6px;
-    }
-
     .btn-start {
-      padding: 15px 72px;
+      padding: 14px 64px;
       font-size: 1.45rem;
       font-weight: 800;
       letter-spacing: 2px;
-      color: #1E3A8A;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
-      border: 2.5px solid #CBD5E1;
+      color: #2D3748;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 2.5px solid #CBD5E0;
       border-radius: 40px;
       cursor: pointer;
-      transition: all 0.22s ease;
-      box-shadow: 0 8px 22px rgba(30, 58, 138, 0.16);
-      margin-top: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(30, 64, 110, 0.14);
     }
     .btn-start:hover { 
-      background: #1E3A8A; 
+      background: #2D3748; 
       color: #FFF; 
-      border-color: #1E3A8A;
+      border-color: #2D3748;
       transform: translateY(-3px); 
-      box-shadow: 0 14px 28px rgba(30, 58, 138, 0.28);
+      box-shadow: 0 12px 24px rgba(45, 55, 72, 0.25);
     }
 
-    /* =========================================
-       2. 冊數選題目錄頁
-       ========================================= */
-    #screen-menu {
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-      gap: 22px;
-    }
-
-    .menu-cards-grid {
+    /* 目錄頁：簡潔卡片網格 (不顯示預設主題名稱) */
+    .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       width: 100%;
-      max-width: 800px;
-      margin: 10px 0;
+      max-width: 780px;
+      margin: 15px auto 26px auto;
     }
-
-    .book-select-card {
+    .menu-card {
       background: #FFFFFF;
-      border: 2px solid #E2E8F0;
-      border-radius: 18px;
-      padding: 16px 18px;
+      border-radius: 16px;
+      padding: 18px 16px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
       cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+      border: 2px solid transparent;
+      border-left: 6px solid #CBD5E0;
+      transition: all 0.25s ease;
     }
-
-    .book-select-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 6px;
-      background: var(--card-color, var(--primary-color));
-    }
-
-    .book-select-card:hover {
+    .menu-card:hover {
       transform: translateY(-4px);
-      border-color: var(--card-color, var(--primary-color));
-      box-shadow: 0 12px 24px rgba(30, 58, 138, 0.14);
+      box-shadow: 0 12px 24px rgba(49, 130, 206, 0.18);
     }
 
-    .book-badge-icon {
+    .badge-b {
       width: 52px;
       height: 52px;
-      border-radius: 14px;
-      background: var(--card-color, var(--primary-color));
+      border-radius: 12px;
       color: #FFF;
+      font-size: 1.3rem;
+      font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
-      font-weight: 800;
       flex-shrink: 0;
       box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     }
 
-    .card-text {
+    .card-info {
       display: flex;
       flex-direction: column;
-      flex: 1;
     }
-
-    .card-text .book-title {
-      font-size: 1.1rem;
+    .card-title {
+      font-size: 1.25rem;
       font-weight: 800;
-      color: #1E293B;
+      color: #2D3748;
     }
 
-    .card-text .book-desc {
-      font-size: 0.83rem;
-      color: var(--text-muted);
-      line-height: 1.35;
-      margin-top: 2px;
-    }
+    /* 5 個書冊色彩對應 */
+    .c-b1 { border-left-color: #3182CE; }
+    .c-b1 .badge-b { background: linear-gradient(135deg, #4299E1, #3182CE); }
+    .c-b2 { border-left-color: #38A169; }
+    .c-b2 .badge-b { background: linear-gradient(135deg, #48BB78, #38A169); }
+    .c-b3 { border-left-color: #DD6B20; }
+    .c-b3 .badge-b { background: linear-gradient(135deg, #ED8936, #DD6B20); }
+    .c-b4 { border-left-color: #D53F8C; }
+    .c-b4 .badge-b { background: linear-gradient(135deg, #ED64A6, #D53F8C); }
+    .c-b5 { border-left-color: #6B46C1; }
+    .c-b5 .badge-b { background: linear-gradient(135deg, #805AD5, #6B46C1); }
 
-    .back-btn-pill {
-      padding: 10px 32px;
-      border-radius: 30px;
+    .btn-secondary {
+      padding: 10px 30px;
+      border-radius: 25px;
       background: rgba(255, 255, 255, 0.9);
-      border: 1.8px solid #CBD5E1;
-      color: #475569;
+      border: 1.5px solid #CBD5E0;
+      color: #4A5568;
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 600;
       transition: all 0.2s ease;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    .back-btn-pill:hover {
+    .btn-secondary:hover {
       background: #FFFFFF;
       border-color: var(--primary-color);
       color: var(--primary-color);
       transform: translateY(-2px);
     }
 
-    /* =========================================
-       3. 製作中提示畫面 (Under Construction)
-       ========================================= */
-    #screen-construction {
-      justify-content: center;
-      align-items: center;
-      padding: 20px 0;
-    }
-
-    .construction-card {
-      width: 100%;
-      max-width: 580px;
+    /* 題庫製作中畫面 */
+    .under-construction-box {
       background: #FFFFFF;
-      border: 2px solid #E2E8F0;
-      border-radius: 24px;
-      padding: 42px 28px;
+      border-radius: 20px;
+      padding: 38px 24px;
+      width: 100%;
+      max-width: 500px;
       text-align: center;
-      box-shadow: 0 16px 36px rgba(30, 58, 138, 0.08);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
-      overflow: hidden;
+      gap: 16px;
+      margin: 20px 0;
     }
-
-    .construction-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #3B82F6, #10B981, #F59E0B, #EC4899, #8B5CF6);
-    }
-
-    .construction-thumb {
-      width: 120px;
-      height: 165px;
+    .target-book-preview {
+      width: 110px;
+      height: 156px;
       border-radius: 10px;
       object-fit: cover;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.18);
-      margin-bottom: 20px;
-      border: 2px solid #E2E8F0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      margin-bottom: 4px;
     }
-
-    .construction-book-tag {
-      display: inline-block;
-      font-size: 0.95rem;
+    .cons-icon {
+      font-size: 2.8rem;
+    }
+    .cons-title {
+      font-size: 1.55rem;
       font-weight: 800;
-      padding: 4px 16px;
-      border-radius: 20px;
-      background: #F1F5F9;
-      color: #3B82F6;
-      margin-bottom: 12px;
+      color: #1A365D;
     }
-
-    .construction-title {
-      font-size: 1.85rem;
-      font-weight: 900;
-      color: #1E3A8A;
-      margin-bottom: 10px;
-    }
-
-    .construction-desc {
+    .cons-desc {
       font-size: 1.05rem;
-      color: #64748B;
+      color: var(--text-muted);
       line-height: 1.6;
-      max-width: 440px;
-      margin-bottom: 28px;
     }
 
-    .construction-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    /* RWD 適應手機與平板 */
-    @media (max-width: 768px) {
+    @media (max-width: 680px) {
       body { padding: 0; }
       .app-container {
         margin: 0;
         min-height: 100vh;
         border-radius: 0;
-        padding: 24px 16px;
+        padding: 22px 14px;
         border: none;
       }
-      .curved-header { margin-bottom: 20px; }
-      .curved-header .title-line1 { font-size: 2.1rem; }
-      .curved-header .title-line2 { font-size: 1.2rem; }
-      .curved-header .title-badge::before,
-      .curved-header .title-badge::after { font-size: 2.3rem; }
-      .header-curve-line { width: 220px; height: 14px; }
-      
-      .books-showcase { gap: 16px; margin-bottom: 24px; }
-      .books-row { gap: 14px; }
-      .book-item { width: 105px; height: 150px; }
-      .btn-start { padding: 13px 56px; font-size: 1.25rem; }
-      .menu-cards-grid { grid-template-columns: 1fr; }
+      .header-title-main { font-size: 1.85rem; }
+      .header-title-sub { font-size: 1.05rem; }
+      .header-brackets-wrapper::before,
+      .header-brackets-wrapper::after { font-size: 2.6rem; }
+      .header-curve-line { width: 190px; height: 12px; }
+      .books-display { gap: 14px; margin-bottom: 22px; }
+      .books-row { gap: 10px; }
+      .book-item img { width: 95px; height: 135px; }
+      .menu-grid { grid-template-columns: 1fr; gap: 12px; }
+      .btn-start { padding: 12px 50px; font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -528,129 +347,119 @@
 
 <div class="app-container">
 
-  <!-- 1. 扉頁 (首頁: 展示 5 本書封面) -->
+  <!-- 1. 扉頁 (首頁) -->
   <section id="screen-cover" class="view-screen active">
-    <div class="hero-content">
-      <div class="curved-header">
-        <div class="title-badge">
-          <div class="title-line1">Grammar</div>
-          <div class="title-line2">for young learners</div>
-        </div>
-        <div class="header-curve-line"></div>
-      </div>
-
-      <!-- 五本書封展示區：第一排 3 本、第二排 2 本 -->
-      <div class="books-showcase">
-        <div class="books-row row-top">
-          <!-- Book 1 -->
-          <div class="book-item" onclick="loadAndOpenTheme(1)" title="點選進入 Book 1">
-            <img src="./images/b1.png" alt="Grammar 1" class="book-cover-img" onerror="showFallback(this, 1)">
-            <div class="book-fallback-view book-1-bg" id="fallback-1" style="display:none;">
-              <span class="book-tag">Level 1</span>
-              <div class="book-main-title">
-                <span class="book-level">Book 1</span>
-                <span class="book-sub">Nouns &amp; Pronouns</span>
-              </div>
-              <div class="book-footer">Grammar Core</div>
-            </div>
-          </div>
-
-          <!-- Book 2 -->
-          <div class="book-item" onclick="loadAndOpenTheme(2)" title="點選進入 Book 2">
-            <img src="./images/b2.png" alt="Grammar 2" class="book-cover-img" onerror="showFallback(this, 2)">
-            <div class="book-fallback-view book-2-bg" id="fallback-2" style="display:none;">
-              <span class="book-tag">Level 2</span>
-              <div class="book-main-title">
-                <span class="book-level">Book 2</span>
-                <span class="book-sub">Present Tense &amp; Be</span>
-              </div>
-              <div class="book-footer">Grammar Core</div>
-            </div>
-          </div>
-
-          <!-- Book 3 -->
-          <div class="book-item" onclick="loadAndOpenTheme(3)" title="點選進入 Book 3">
-            <img src="./images/b3.png" alt="Grammar 3" class="book-cover-img" onerror="showFallback(this, 3)">
-            <div class="book-fallback-view book-3-bg" id="fallback-3" style="display:none;">
-              <span class="book-tag">Level 3</span>
-              <div class="book-main-title">
-                <span class="book-level">Book 3</span>
-                <span class="book-sub">Adjectives &amp; Preps</span>
-              </div>
-              <div class="book-footer">Grammar Core</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="books-row row-bottom">
-          <!-- Book 4 -->
-          <div class="book-item" onclick="loadAndOpenTheme(4)" title="點選進入 Book 4">
-            <img src="./images/b4.png" alt="Grammar 4" class="book-cover-img" onerror="showFallback(this, 4)">
-            <div class="book-fallback-view book-4-bg" id="fallback-4" style="display:none;">
-              <span class="book-tag">Level 4</span>
-              <div class="book-main-title">
-                <span class="book-level">Book 4</span>
-                <span class="book-sub">Past Tense &amp; Modals</span>
-              </div>
-              <div class="book-footer">Grammar Core</div>
-            </div>
-          </div>
-
-          <!-- Book 5 -->
-          <div class="book-item" onclick="loadAndOpenTheme(5)" title="點選進入 Book 5">
-            <img src="./images/b5.png" alt="Grammar 5" class="book-cover-img" onerror="showFallback(this, 5)">
-            <div class="book-fallback-view book-5-bg" id="fallback-5" style="display:none;">
-              <span class="book-tag">Level 5</span>
-              <div class="book-main-title">
-                <span class="book-level">Book 5</span>
-                <span class="book-sub">Conjunctions &amp; Clauses</span>
-              </div>
-              <div class="book-footer">Grammar Core</div>
-            </div>
-          </div>
+    <div class="curved-header">
+      <div class="header-brackets-wrapper">
+        <div class="header-text-group">
+          <div class="header-title-main">Grammar</div>
+          <div class="header-title-sub">for young learners</div>
         </div>
       </div>
-
-      <button class="btn-start" onclick="navigateTo('screen-menu')">START</button>
+      <div class="header-curve-line"></div>
     </div>
+
+    <div class="books-display">
+      <!-- 第一排：Book 1, Book 2, Book 3 -->
+      <div class="books-row row-top">
+        <div class="book-item" onclick="openBookComingSoon(1)">
+          <img src="./images/b1.png" alt="Grammar Book 1">
+        </div>
+        <div class="book-item" onclick="openBookComingSoon(2)">
+          <img src="./images/b2.png" alt="Grammar Book 2">
+        </div>
+        <div class="book-item" onclick="openBookComingSoon(3)">
+          <img src="./images/b3.png" alt="Grammar Book 3">
+        </div>
+      </div>
+
+      <!-- 第二排：Book 4, Book 5 -->
+      <div class="books-row row-bottom">
+        <div class="book-item" onclick="openBookComingSoon(4)">
+          <img src="./images/b4.png" alt="Grammar Book 4">
+        </div>
+        <div class="book-item" onclick="openBookComingSoon(5)">
+          <img src="./images/b5.png" alt="Grammar Book 5">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-start" onclick="navigateTo('screen-menu')">START</button>
   </section>
 
-  <!-- 2. 主題目錄頁 (選擇冊數) -->
+  <!-- 2. 目錄頁 -->
   <section id="screen-menu" class="view-screen">
     <div class="curved-header">
-      <div class="title-badge">
-        <div class="title-line1">Grammar</div>
-        <div class="title-line2">for young learners</div>
+      <div class="header-brackets-wrapper">
+        <div class="header-text-group">
+          <div class="header-title-main">Grammar</div>
+          <div class="header-title-sub">for young learners</div>
+        </div>
       </div>
       <div class="header-curve-line"></div>
     </div>
 
-    <!-- 5 本書的詳細主題選題目錄 -->
-    <div class="menu-cards-grid" id="themeGrid"></div>
+    <div class="menu-grid">
+      <div class="menu-card c-b1" onclick="openBookComingSoon(1)">
+        <div class="badge-b">B1</div>
+        <div class="card-info">
+          <div class="card-title">Book 1</div>
+        </div>
+      </div>
 
-    <button class="back-btn-pill" onclick="navigateTo('screen-cover')">← 回到主頁</button>
+      <div class="menu-card c-b2" onclick="openBookComingSoon(2)">
+        <div class="badge-b">B2</div>
+        <div class="card-info">
+          <div class="card-title">Book 2</div>
+        </div>
+      </div>
+
+      <div class="menu-card c-b3" onclick="openBookComingSoon(3)">
+        <div class="badge-b">B3</div>
+        <div class="card-info">
+          <div class="card-title">Book 3</div>
+        </div>
+      </div>
+
+      <div class="menu-card c-b4" onclick="openBookComingSoon(4)">
+        <div class="badge-b">B4</div>
+        <div class="card-info">
+          <div class="card-title">Book 4</div>
+        </div>
+      </div>
+
+      <div class="menu-card c-b5" onclick="openBookComingSoon(5)">
+        <div class="badge-b">B5</div>
+        <div class="card-info">
+          <div class="card-title">Book 5</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-secondary" onclick="navigateTo('screen-cover')">← 回到主頁</button>
   </section>
 
-  <!-- 3. 題庫製作中畫面 (Under Construction) -->
+  <!-- 3. 題庫製作中畫面 -->
   <section id="screen-construction" class="view-screen">
     <div class="curved-header">
-      <div class="title-badge">
-        <div class="title-line1">Grammar</div>
-        <div class="title-line2">for young learners</div>
+      <div class="header-brackets-wrapper">
+        <div class="header-text-group">
+          <div class="header-title-main">Grammar</div>
+          <div class="header-title-sub">for young learners</div>
+        </div>
       </div>
       <div class="header-curve-line"></div>
     </div>
 
-    <div class="construction-card">
-      <img id="constructionBookImg" src="./images/b1.png" alt="Book cover" class="construction-thumb" onerror="this.style.display='none'">
-      <div class="construction-book-tag" id="constructionBookTag">Book 1 · Nouns &amp; Pronouns</div>
-      <h2 class="construction-title">題庫正在製作中...</h2>
-      <p class="construction-desc">
-        這本書的文法題庫與各單元練習目前正在精心編寫校對中！題庫完成後將立刻開放互動測驗。
-      </p>
-      <div class="construction-actions">
-        <button class="btn-start" style="padding: 12px 30px; font-size: 1.05rem; margin-top: 0;" onclick="navigateTo('screen-menu')">📚 回書籍目錄</button>
-        <button class="back-btn-pill" onclick="navigateTo('screen-cover')">🏠 回首頁</button>
+    <div class="under-construction-box">
+      <img id="consBookImg" src="./images/b1.png" alt="Book Cover" class="target-book-preview">
+      <div class="cons-icon">🚧</div>
+      <h2 class="cons-title" id="consBookTitle">Book 1 題庫製作中</h2>
+      <p class="cons-desc">本冊文法練習題目正在積極編寫中，敬請期待！</p>
+      
+      <div style="display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; justify-content: center;">
+        <button class="btn-secondary" onclick="navigateTo('screen-menu')">📚 回書籍目錄</button>
+        <button class="btn-secondary" onclick="navigateTo('screen-cover')">🏠 回首頁</button>
       </div>
     </div>
   </section>
@@ -658,130 +467,21 @@
 </div>
 
 <script>
-  // ====== LINE 專用：自動強制跳轉至外部瀏覽器以確保語音與互動完整相容 ======
-  (function handleLineRedirect() {
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isLine = /Line\//i.test(ua);
-    if (isLine) {
-      const currentUrl = new URL(window.location.href);
-      if (!currentUrl.searchParams.has('openExternalBrowser')) {
-        currentUrl.searchParams.set('openExternalBrowser', '1');
-        window.location.replace(currentUrl.toString());
-      }
-    }
-  })();
-
-  // ====== 手機語音解鎖 ======
-  let ttsUnlocked = false;
-  function unlockAudioForMobile() {
-    if (ttsUnlocked || !('speechSynthesis' in window)) return;
-    const silentUtterance = new SpeechSynthesisUtterance('');
-    silentUtterance.volume = 0;
-    window.speechSynthesis.speak(silentUtterance);
-    ttsUnlocked = true;
-  }
-  document.addEventListener('click', unlockAudioForMobile, { once: true });
-  document.addEventListener('touchstart', unlockAudioForMobile, { once: true });
-
-  // ====== 五本書冊的基本設定 ======
-  const booksConfig = [
-    {
-      id: 1,
-      image: "./images/b1.png",
-      color: "#3B82F6",
-      bookTitle: "Book 1",
-      topic: "Nouns & Pronouns",
-      fullTheme: "Nouns, Articles & Subject Pronouns"
-    },
-    {
-      id: 2,
-      image: "./images/b2.png",
-      color: "#10B981",
-      bookTitle: "Book 2",
-      topic: "Present Tense & Verbs",
-      fullTheme: "Simple Present & Present Continuous"
-    },
-    {
-      id: 3,
-      image: "./images/b3.png",
-      color: "#F59E0B",
-      bookTitle: "Book 3",
-      topic: "Adjectives & Prepositions",
-      fullTheme: "Adjectives, Comparatives & Prepositions"
-    },
-    {
-      id: 4,
-      image: "./images/b4.png",
-      color: "#EC4899",
-      bookTitle: "Book 4",
-      topic: "Past Tense & Modals",
-      fullTheme: "Simple Past & Modal Verbs"
-    },
-    {
-      id: 5,
-      image: "./images/b5.png",
-      color: "#8B5CF6",
-      bookTitle: "Book 5",
-      topic: "Conjunctions & Clauses",
-      fullTheme: "Conjunctions & Compound Sentences"
-    }
-  ];
-
-  let currentBookMeta = null;
-
-  // 畫面切換
   function navigateTo(screenId) {
     document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active'));
     const target = document.getElementById(screenId);
-    if (target) {
-      target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (target) target.classList.add('active');
   }
 
-  // 圖片載入失敗時的後備顯示
-  function showFallback(imgEl, bookId) {
-    imgEl.style.display = 'none';
-    const fallback = document.getElementById(`fallback-${bookId}`);
-    if (fallback) fallback.style.display = 'flex';
-  }
-
-  // 初始化書本選單 Grid
-  function initThemeGrid() {
-    const grid = document.getElementById('themeGrid');
-    grid.innerHTML = booksConfig.map(book => `
-      <div class="book-select-card" style="--card-color: ${book.color};" onclick="loadAndOpenTheme(${book.id})">
-        <div class="book-badge-icon">B${book.id}</div>
-        <div class="card-text">
-          <div class="book-title">${book.bookTitle} · ${book.topic}</div>
-          <div class="book-desc">${book.fullTheme}</div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // 點擊任一本書：直接顯示「題庫正在製作中」提示頁面
-  function loadAndOpenTheme(bookId) {
-    currentBookMeta = booksConfig.find(b => b.id === bookId);
-    if (!currentBookMeta) return;
-
-    const tag = document.getElementById('constructionBookTag');
-    if (tag) {
-      tag.innerText = `${currentBookMeta.bookTitle} · ${currentBookMeta.topic}`;
-      tag.style.color = currentBookMeta.color;
-      tag.style.background = `${currentBookMeta.color}18`;
-    }
-
-    const thumb = document.getElementById('constructionBookImg');
-    if (thumb) {
-      thumb.src = currentBookMeta.image;
-      thumb.style.display = 'block';
-    }
-
+  function openBookComingSoon(bookNum) {
+    const titleEl = document.getElementById('consBookTitle');
+    const imgEl = document.getElementById('consBookImg');
+    
+    if (titleEl) titleEl.innerText = `Book ${bookNum} 題庫製作中`;
+    if (imgEl) imgEl.src = `./images/b${bookNum}.png`;
+    
     navigateTo('screen-construction');
   }
-
-  initThemeGrid();
 </script>
 
 </body>
