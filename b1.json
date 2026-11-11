@@ -1,0 +1,208 @@
+{
+  "bookId": 1,
+  "bookTitle": "Book 1",
+  "part1": {
+    "title": "Review 綜合測驗",
+    "description": "系統將自 20 題 Review 題庫中隨機抽取 10 題作答。",
+    "sampleCount": 10,
+    "questions": [
+      {
+        "id": 1,
+        "type": "choice",
+        "question": "A: Where is Dad? \nB: ______ in the park.",
+        "options": ["He", "He's", "She"],
+        "answer": "He's"
+      },
+      {
+        "id": 2,
+        "type": "choice",
+        "question": "______ cookies are for you and your brother.",
+        "options": ["This", "That", "Those"],
+        "answer": "Those"
+      },
+      {
+        "id": 3,
+        "type": "choice",
+        "question": "A: Are there oranges in the box? \nB: Yes, ______.",
+        "options": ["there are", "they are", "there aren't"],
+        "answer": "there are"
+      },
+      {
+        "id": 4,
+        "type": "choice",
+        "question": "A: ______ I your friend? \nB: Yes, you ______.",
+        "options": ["Are; am", "Am; are", "Am; is"],
+        "answer": "Am; are"
+      },
+      {
+        "id": 5,
+        "type": "choice",
+        "question": "There is ______ old house near the park.",
+        "options": ["the", "a", "an"],
+        "answer": "an"
+      },
+      {
+        "id": 6,
+        "type": "choice",
+        "question": "There's ______ soup in the bowl. ______ soup is for you.",
+        "options": ["a; A", "the; The", "X; The"],
+        "answer": "X; The"
+      },
+      {
+        "id": 7,
+        "type": "choice",
+        "question": "There is a big tree ______ the school and the park.",
+        "options": ["in", "between", "under"],
+        "answer": "between"
+      },
+      {
+        "id": 8,
+        "type": "choice",
+        "question": "A: ______ is that man? \nB: He's our new teacher, Mr. Bonds.",
+        "options": ["Who", "What", "Where"],
+        "answer": "Who"
+      },
+      {
+        "id": 9,
+        "type": "choice",
+        "question": "A: How many ______ are there on the farm? \nB: There are twelve.",
+        "options": ["pig", "animals", "wolf"],
+        "answer": "animals"
+      },
+      {
+        "id": 10,
+        "type": "choice",
+        "question": "I need two ______ and ten ______ for the pie.",
+        "options": ["peach; strawberry", "peachs; strawberrys", "peaches; strawberries"],
+        "answer": "peaches; strawberries"
+      },
+      {
+        "id": 11,
+        "type": "choice",
+        "question": "A: Are ______ your dolls? \nB: Yes, ______ are.",
+        "options": ["this, it", "these, they", "those, you"],
+        "answer": "these, they"
+      },
+      {
+        "id": 12,
+        "type": "choice",
+        "question": "I eat ______ egg and ______ milk for breakfast every day.",
+        "options": ["an; a", "a; an", "an; X"],
+        "answer": "an; X"
+      },
+      {
+        "id": 13,
+        "type": "choice",
+        "question": "It is an ______ house. It's not new.",
+        "options": ["new", "big", "old"],
+        "answer": "old"
+      },
+      {
+        "id": 14,
+        "type": "choice",
+        "question": "A: ______ is my eraser? \nB: It's under your book.",
+        "options": ["Where", "What", "How"],
+        "answer": "Where"
+      },
+      {
+        "id": 15,
+        "type": "choice",
+        "question": "A: Is there a big bad wolf in this story? \nB: Yes, ______.",
+        "options": ["there is", "there's", "it is"],
+        "answer": "there is"
+      },
+      {
+        "id": 16,
+        "type": "choice",
+        "passage": "Easter is coming. We [16] Easter bunnies. We hide Easter eggs everywhere. There is [17] orange egg under the bag. There [18] four eggs in the small box. There are three green eggs [19] the ball and the doll. There are two chocolate eggs in my bag. [20] my favorite eggs!\nCan the children find them all? Happy Easter!",
+        "question": "第 16 題：We ______ Easter bunnies.",
+        "options": ["am", "are", "is"],
+        "answer": "are"
+      },
+      {
+        "id": 17,
+        "type": "choice",
+        "question": "第 17 題：There is ______ orange egg under the bag.",
+        "options": ["no", "a", "an"],
+        "answer": "an"
+      },
+      {
+        "id": 18,
+        "type": "choice",
+        "question": "第 18 題：There ______ four eggs in the small box.",
+        "options": ["is", "am", "are"],
+        "answer": "are"
+      },
+      {
+        "id": 19,
+        "type": "choice",
+        "question": "第 19 題：There are three green eggs ______ the ball and the doll.",
+        "options": ["in", "between", "on"],
+        "answer": "between"
+      },
+      {
+        "id": 20,
+        "type": "choice",
+        "question": "第 20 題：______ my favorite eggs!",
+        "options": ["They're", "There are", "It's"],
+        "answer": "They're"
+      }
+    ]
+  },
+  "part2": {
+    "title": "文法連連看 (Matching)",
+    "description": "共 5 組關卡，每組 4 題，請將左側題目與右側正確對應項目連線。",
+    "sets": [
+      {
+        "setId": 1,
+        "setName": "關卡 1：問答句配對 (Questions & Answers)",
+        "pairs": [
+          { "left": "Are frogs big?", "right": "No, they are not." },
+          { "left": "Is your dad a teacher?", "right": "Yes, he is." },
+          { "left": "Is that a small park?", "right": "No, it is not." },
+          { "left": "Is she tall?", "right": "No, she is not." }
+        ]
+      },
+      {
+        "setId": 2,
+        "setName": "關卡 2：疑問詞情境配對 (Question Words)",
+        "pairs": [
+          { "left": "How is your grandma?", "right": "She's fine." },
+          { "left": "What are those?", "right": "They are ants." },
+          { "left": "Who is that boy?", "right": "He's my brother." },
+          { "left": "Where is your school?", "right": "It's near the park." }
+        ]
+      },
+      {
+        "setId": 3,
+        "setName": "關卡 3：主詞與代名詞替換 (Pronoun Match)",
+        "pairs": [
+          { "left": "The elephants are big.", "right": "They are big." },
+          { "left": "Lily is in the park.", "right": "She is in the park." },
+          { "left": "Jack is her brother.", "right": "He is her brother." },
+          { "left": "My sister and I are at home.", "right": "We are at home." }
+        ]
+      },
+      {
+        "setId": 4,
+        "setName": "關卡 4：單數與不規則複數配對 (Irregular Plural Nouns)",
+        "pairs": [
+          { "left": "baby", "right": "babies" },
+          { "left": "wolf", "right": "wolves" },
+          { "left": "tooth", "right": "teeth" },
+          { "left": "knife", "right": "knives" }
+        ]
+      },
+      {
+        "setId": 5,
+        "setName": "關卡 5：名詞複數與規則變化 (Plural -s / -es)",
+        "pairs": [
+          { "left": "dress", "right": "dresses" },
+          { "left": "watch", "right": "watches" },
+          { "left": "fox", "right": "foxes" },
+          { "left": "strawberry", "right": "strawberries" }
+        ]
+      }
+    ]
+  }
+}
