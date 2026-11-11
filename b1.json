@@ -31,8 +31,8 @@
         "id": 4,
         "type": "choice",
         "question": "A: ______ I your friend? \nB: Yes, you ______.",
-        "options": ["Are; am", "Am; are", "Am; is"],
-        "answer": "Am; are"
+        "options": ["Are / am", "Am / are", "Am / is"],
+        "answer": "Am / are"
       },
       {
         "id": 5,
@@ -45,8 +45,8 @@
         "id": 6,
         "type": "choice",
         "question": "There's ______ soup in the bowl. ______ soup is for you.",
-        "options": ["a; A", "the; The", "X; The"],
-        "answer": "X; The"
+        "options": ["a / A", "the / The", "X / The"],
+        "answer": "X / The"
       },
       {
         "id": 7,
@@ -73,22 +73,22 @@
         "id": 10,
         "type": "choice",
         "question": "I need two ______ and ten ______ for the pie.",
-        "options": ["peach; strawberry", "peachs; strawberrys", "peaches; strawberries"],
-        "answer": "peaches; strawberries"
+        "options": ["peach / strawberry", "peachs / strawberrys", "peaches / strawberries"],
+        "answer": "peaches / strawberries"
       },
       {
         "id": 11,
         "type": "choice",
         "question": "A: Are ______ your dolls? \nB: Yes, ______ are.",
-        "options": ["this, it", "these, they", "those, you"],
-        "answer": "these, they"
+        "options": ["this / it", "these / they", "those / you"],
+        "answer": "these / they"
       },
       {
         "id": 12,
         "type": "choice",
         "question": "I eat ______ egg and ______ milk for breakfast every day.",
-        "options": ["an; a", "a; an", "an; X"],
-        "answer": "an; X"
+        "options": ["an / a", "a / an", "an / X"],
+        "answer": "an / X"
       },
       {
         "id": 13,

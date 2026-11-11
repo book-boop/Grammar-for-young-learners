@@ -407,21 +407,6 @@
       gap: 10px;
     }
 
-    .btn-audio {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid #CBD5E0;
-      background: #EBF8FF;
-      cursor: pointer;
-      font-size: 1.2rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease;
-    }
-    .btn-audio:hover { transform: scale(1.1); }
-
     .options-grid {
       display: flex;
       flex-direction: column;
@@ -440,6 +425,7 @@
       color: #2D3748;
       cursor: pointer;
       transition: all 0.2s ease;
+      letter-spacing: 0.5px;
     }
     .btn-opt:hover:not(:disabled) {
       border-color: var(--primary-color);
@@ -690,14 +676,10 @@
     return copy;
   }
 
-  function speakText(txt) {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    const clean = txt.replace(/_{2,}/g, 'blank').replace(/\[\d+\]/g, '');
-    const u = new SpeechSynthesisUtterance(clean);
-    u.lang = 'en-US';
-    u.rate = 0.85;
-    window.speechSynthesis.speak(u);
+  // 將選項中的分號統一標準化為斜線格式 " / "
+  function formatOptionText(txt) {
+    if (!txt) return "";
+    return String(txt).replace(/\s*[;；]\s*/g, ' / ');
   }
 
   // ================= 測驗狀態與邏輯 =================
@@ -754,10 +736,9 @@
     document.getElementById('pill-part2').classList.toggle('active', stageNum === 2);
   }
 
-  // ================= 第一大題：單選題 =================
+  // ================= 第一大題：單選題（無朗讀，選項使用 / 分隔） =================
   function renderPart1Question() {
     if (p1Index >= p1Questions.length) {
-      // 進入第二大題
       startPart2();
       return;
     }
@@ -766,6 +747,8 @@
     const total = p1Questions.length;
     const progress = ((p1Index + 1) / total) * 100;
     const container = document.getElementById('quizContainer');
+
+    const formattedAnswer = formatOptionText(q.answer);
 
     container.innerHTML = `
       <div class="quiz-card">
@@ -779,13 +762,15 @@
 
         <div class="question-text">
           <span>${q.question}</span>
-          <button class="btn-audio" title="朗讀題目" onclick="speakText('${q.question.replace(/\n/g, ' ')}')">🔊</button>
         </div>
 
         <div class="options-grid">
-          ${q.options.map(opt => `
-            <button class="btn-opt" onclick="handleP1Answer(this, '${opt.replace(/'/g, "\\'")}', '${q.answer.replace(/'/g, "\\'")}')">${opt}</button>
-          `).join('')}
+          ${q.options.map(opt => {
+            const formattedOpt = formatOptionText(opt);
+            return `
+              <button class="btn-opt" data-value="${formattedOpt}" onclick="handleP1Answer(this, '${formattedOpt.replace(/'/g, "\\'")}', '${formattedAnswer.replace(/'/g, "\\'")}')">${formattedOpt}</button>
+            `;
+          }).join('')}
         </div>
       </div>
     `;
@@ -801,7 +786,7 @@
     } else {
       btn.classList.add('wrong');
       parent.querySelectorAll('.btn-opt').forEach(b => {
-        if (b.innerText === correct) b.classList.add('correct');
+        if (b.getAttribute('data-value') === correct) b.classList.add('correct');
       });
     }
 
@@ -878,7 +863,6 @@
 
     if (selectedLeft && selectedRight) {
       if (selectedLeft.id === selectedRight.id) {
-        // 配對成功
         selectedLeft.btn.classList.remove('selected');
         selectedRight.btn.classList.remove('selected');
         selectedLeft.btn.classList.add('matched');
@@ -897,7 +881,6 @@
           }, 700);
         }
       } else {
-        // 配對錯誤
         const el1 = selectedLeft.btn;
         const el2 = selectedRight.btn;
         el1.classList.add('shake');
