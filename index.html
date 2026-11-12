@@ -135,7 +135,7 @@
       margin: 8px auto 0 auto;
     }
 
-    /* 首頁封面陳列（純展示，無點擊跳轉） */
+    /* 首頁封面陳列（保留鼠標懸停浮動效果，不提供點擊跳轉） */
     .books-display {
       display: flex;
       flex-direction: column;
@@ -169,6 +169,12 @@
       object-fit: cover;
       display: block;
       pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    .book-item:hover {
+      transform: translateY(-10px) scale(1.06) rotate(0deg) !important;
+      box-shadow: 0 22px 36px rgba(30, 64, 110, 0.32);
+      z-index: 10;
     }
 
     .row-top .book-item:nth-child(1) { transform: rotate(-4deg); }
@@ -522,7 +528,7 @@
 
 <div class="app-container">
 
-  <!-- 1. 扉頁 (首頁：僅展示書封，必須點擊 START 進入目錄) -->
+  <!-- 1. 扉頁 (首頁：保留懸停浮動動畫，必須點擊 START 進入目錄) -->
   <section id="screen-cover" class="view-screen active">
     <div class="curved-header">
       <div class="header-brackets-wrapper">
