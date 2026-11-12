@@ -387,11 +387,15 @@
       padding: 12px 14px;
       border-radius: 8px;
       font-size: 0.95rem;
-      line-height: 1.5;
+      line-height: 1.6;
       color: #4A5568;
       margin-bottom: 16px;
       white-space: pre-line;
       text-align: left;
+    }
+    .cloze-num {
+      font-weight: 800;
+      color: var(--primary-color);
     }
 
     .question-text {
@@ -651,7 +655,6 @@
     if (target) target.classList.add('active');
   }
 
-  // 統一處理所有書本點擊：動態嘗試載入 b1.json ~ b5.json，若尚未建立該冊檔案則自動導向「題庫製作中」畫面
   function handleBookClick(bookNum) {
     loadBookQuiz(bookNum);
   }
@@ -679,6 +682,44 @@
     return String(txt).replace(/\s*[;；]\s*/g, ' / ');
   }
 
+  // 自動計算克漏字偏移量，將 [15]~[20] 轉換為 (1)~(6)，並將題幹「第 15 題：」替換為「(1)」
+  function getClozeFormattedData(q, allQuestions) {
+    let clozeOffset = 0;
+
+    // 1. 尋找所屬文章的起始題號 (例如 [15] -> 15，則偏移量為 14)
+    let passageSource = q.passage || "";
+    if (!passageSource && /^第\s*\d+\s*題[：:]/.test(q.question)) {
+      const prevPassageQ = allQuestions.find(item => item.passage);
+      if (prevPassageQ) passageSource = prevPassageQ.passage;
+    }
+
+    if (passageSource) {
+      const matches = [...passageSource.matchAll(/\[(\d+)\]/g)];
+      if (matches.length > 0) {
+        const minNum = Math.min(...matches.map(m => parseInt(m[1], 10)));
+        clozeOffset = minNum - 1;
+      }
+    }
+
+    // 2. 轉換文章中的 [15] -> (1)
+    let formattedPassage = "";
+    if (q.passage) {
+      formattedPassage = q.passage.replace(/\[(\d+)\]/g, (_, numStr) => {
+        const newNum = parseInt(numStr, 10) - clozeOffset;
+        return `<span class="cloze-num">(${newNum})</span>`;
+      });
+    }
+
+    // 3. 轉換題幹中的「第 15 題：」 -> 「(1) 」
+    let formattedQuestion = q.question.replace(/^第\s*(\d+)\s*題[：:]\s*/, (_, numStr) => {
+      const origNum = parseInt(numStr, 10);
+      const newNum = clozeOffset > 0 ? (origNum - clozeOffset) : origNum;
+      return `(${newNum}) `;
+    });
+
+    return { formattedPassage, formattedQuestion };
+  }
+
   // ================= 測驗狀態與邏輯 =================
   let currentBookNum = 1;
   let currentBookData = null;
@@ -694,13 +735,11 @@
 
   async function loadBookQuiz(bookNum) {
     currentBookNum = bookNum;
-    const container = document.getElementById('quizContainer');
     const bookTag = document.getElementById('quizBookTag');
     
     try {
       const res = await fetch(`./b${bookNum}.json`);
       if (!res.ok) {
-        // 若尚未建立該冊 JSON 檔案（例如 Book 3 ~ 5），自動顯示題庫製作中畫面
         openBookComingSoon(bookNum);
         return;
       }
@@ -709,7 +748,6 @@
       navigateTo('screen-quiz');
       startBookPractice();
     } catch (e) {
-      // 檔案不存在或讀取失敗時，同樣安全切換至「題庫製作中」畫面
       openBookComingSoon(bookNum);
     }
   }
@@ -717,12 +755,10 @@
   function startBookPractice() {
     p1Score = 0;
     p1Index = 0;
-    // 第一大題：隨機抽取指定題數（預設 10 題）
     const sampleSize = (currentBookData.part1 && currentBookData.part1.sampleCount) || 10;
     const shuffledPool = shuffle(currentBookData.part1.questions || []);
     p1Questions = shuffledPool.slice(0, sampleSize);
 
-    // 第二大題：5 組關卡
     p2Sets = currentBookData.part2.sets || [];
     p2SetIndex = 0;
 
@@ -735,7 +771,7 @@
     document.getElementById('pill-part2').classList.toggle('active', stageNum === 2);
   }
 
-  // ================= 第一大題：單選題（無朗讀，選項使用 / 分隔） =================
+  // ================= 第一大題：單選題 =================
   function renderPart1Question() {
     if (p1Index >= p1Questions.length) {
       startPart2();
@@ -748,6 +784,8 @@
     const container = document.getElementById('quizContainer');
 
     const formattedAnswer = formatOptionText(q.answer);
+    const allQuestions = (currentBookData && currentBookData.part1 && currentBookData.part1.questions) || [];
+    const { formattedPassage, formattedQuestion } = getClozeFormattedData(q, allQuestions);
 
     container.innerHTML = `
       <div class="quiz-card">
@@ -757,10 +795,10 @@
           <span>得分: ${p1Score}</span>
         </div>
 
-        ${q.passage ? `<div class="question-passage">${q.passage}</div>` : ''}
+        ${formattedPassage ? `<div class="question-passage">${formattedPassage}</div>` : ''}
 
         <div class="question-text">
-          <span>${q.question}</span>
+          <span>${formattedQuestion}</span>
         </div>
 
         <div class="options-grid">
