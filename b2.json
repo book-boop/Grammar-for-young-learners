@@ -1,0 +1,208 @@
+{
+  "bookId": 2,
+  "bookTitle": "Book 2",
+  "part1": {
+    "title": "Review 綜合測驗",
+    "description": "系統將自 20 題 Review 題庫中隨機抽取 10 題作答。",
+    "sampleCount": 10,
+    "questions": [
+      {
+        "id": 1,
+        "type": "choice",
+        "question": "Birds ______ fly, but they ______ swim.",
+        "options": ["can / can't", "can't / can", "can / can"],
+        "answer": "can / can't"
+      },
+      {
+        "id": 2,
+        "type": "choice",
+        "question": "Are you okay? ______ eyes are red.",
+        "options": ["You're", "You", "Your"],
+        "answer": "Your"
+      },
+      {
+        "id": 3,
+        "type": "choice",
+        "question": "The children are ______ on the playground.",
+        "options": ["running", "runing", "runs"],
+        "answer": "running"
+      },
+      {
+        "id": 4,
+        "type": "choice",
+        "question": "A: What does John ______ to eat? \nB: He ______ to eat meat.",
+        "options": ["likes / likes", "like / like", "like / likes"],
+        "answer": "like / likes"
+      },
+      {
+        "id": 5,
+        "type": "choice",
+        "question": "Jenny and I aren't eight years old. ______ are ten.",
+        "options": ["We", "You", "They"],
+        "answer": "We"
+      },
+      {
+        "id": 6,
+        "type": "choice",
+        "question": "A: Where ______ Leo ______ now? \nB: To the hospital.",
+        "options": ["does / go", "is / going", "is / go"],
+        "answer": "is / going"
+      },
+      {
+        "id": 7,
+        "type": "choice",
+        "question": "______ your hands before you eat.",
+        "options": ["Washes", "Wash", "Washing"],
+        "answer": "Wash"
+      },
+      {
+        "id": 8,
+        "type": "choice",
+        "question": "A: What ______ they ______? \nB: Pizza.",
+        "options": ["are / eating", "is / eating", "are / eat"],
+        "answer": "are / eating"
+      },
+      {
+        "id": 9,
+        "type": "choice",
+        "question": "\"______ eat or drink on the MRT,\" says the sign.",
+        "options": ["Aren't", "Doesn't", "Don't"],
+        "answer": "Don't"
+      },
+      {
+        "id": 10,
+        "type": "choice",
+        "question": "______ Jim and Jill walk to school every day?",
+        "options": ["Does", "Do", "Are"],
+        "answer": "Do"
+      },
+      {
+        "id": 11,
+        "type": "choice",
+        "question": "\"Grandma doesn't ______ a big mouth and sharp teeth,\" said Little Red Riding Hood.",
+        "options": ["has", "have", "is"],
+        "answer": "have"
+      },
+      {
+        "id": 12,
+        "type": "choice",
+        "question": "My ______ car is big and new.",
+        "options": ["dad's", "dad", "dad is"],
+        "answer": "dad's"
+      },
+      {
+        "id": 13,
+        "type": "choice",
+        "question": "This is Jack and this is ______ sister, Jane.",
+        "options": ["he's", "his", "he"],
+        "answer": "his"
+      },
+      {
+        "id": 14,
+        "type": "choice",
+        "question": "A: Can Andy ______ trees? \nB: No, he can't.",
+        "options": ["climbs", "climbing", "climb"],
+        "answer": "climb"
+      },
+      {
+        "id": 15,
+        "type": "choice",
+        "passage": "A girl [15] a golden ball. She drops the ball in the pond. She is crying sadly. Here comes a frog.\nFrog: Why are you [16]?\nGirl: My ball is in the pond. [17] you get my ball back?\nFrog: Yes, I can. But you have to kiss me.\nGirl: Ummm....okay.\nThe frog is ugly and the girl [18] want to kiss him. After the girl gets [19] ball, she [20] home quickly. The frog is sad and angry.",
+        "question": "第 15 題：A girl ______ a golden ball.",
+        "options": ["having", "have", "has"],
+        "answer": "has"
+      },
+      {
+        "id": 16,
+        "type": "choice",
+        "question": "第 16 題：Why are you ______?",
+        "options": ["crying", "cry", "cries"],
+        "answer": "crying"
+      },
+      {
+        "id": 17,
+        "type": "choice",
+        "question": "第 17 題：______ you get my ball back?",
+        "options": ["Do", "Can", "Does"],
+        "answer": "Can"
+      },
+      {
+        "id": 18,
+        "type": "choice",
+        "question": "第 18 題：The frog is ugly and the girl ______ want to kiss him.",
+        "options": ["don't", "doesn't", "isn't"],
+        "answer": "doesn't"
+      },
+      {
+        "id": 19,
+        "type": "choice",
+        "question": "第 19 題：After the girl gets ______ ball,",
+        "options": ["her", "his", "my"],
+        "answer": "her"
+      },
+      {
+        "id": 20,
+        "type": "choice",
+        "question": "第 20 題：she ______ home quickly.",
+        "options": ["run", "running", "runs"],
+        "answer": "runs"
+      }
+    ]
+  },
+  "part2": {
+    "title": "文法連連看 (Matching)",
+    "description": "共 5 組關卡，每組 4 題，請將左側題目與右側正確對應項目連線。",
+    "sets": [
+      {
+        "setId": 1,
+        "setName": "關卡 1：一般動詞三單與肯定/否定配對",
+        "pairs": [
+          { "left": "Sandy likes flowers.", "right": "She doesn't like insects." },
+          { "left": "Jason wants a hamburger.", "right": "He doesn't want ice cream." },
+          { "left": "We play baseball.", "right": "We don't play basketball." },
+          { "left": "The monkey eats bananas.", "right": "It doesn't eat hot dogs." }
+        ]
+      },
+      {
+        "setId": 2,
+        "setName": "關卡 2：Have / Has 句型配對",
+        "pairs": [
+          { "left": "Dogs have four legs.", "right": "They don't have arms." },
+          { "left": "Lily has two brothers.", "right": "She doesn't have sisters." },
+          { "left": "I have three cats.", "right": "I don't have birds." },
+          { "left": "My brother has a bike.", "right": "He doesn't have a car." }
+        ]
+      },
+      {
+        "setId": 3,
+        "setName": "關卡 3：現在進行式動作配對 (What are they doing?)",
+        "pairs": [
+          { "left": "The kids aren't dancing.", "right": "They're playing soccer." },
+          { "left": "The boy isn't writing.", "right": "He's reading a book." },
+          { "left": "Two dogs aren't eating.", "right": "They're sleeping." },
+          { "left": "The man isn't walking.", "right": "He's running." }
+        ]
+      },
+      {
+        "setId": 4,
+        "setName": "關卡 4：動詞加 -ing 變化規則 (V-ing)",
+        "pairs": [
+          { "left": "play", "right": "playing" },
+          { "left": "drive", "right": "driving" },
+          { "left": "write", "right": "writing" },
+          { "left": "swim", "right": "swimming" }
+        ]
+      },
+      {
+        "setId": 5,
+        "setName": "關卡 5：Can 能力問答配對 (Can / Can't)",
+        "pairs": [
+          { "left": "Can dogs fly?", "right": "No, they can't." },
+          { "left": "Can Billy play basketball?", "right": "Yes, he can." },
+          { "left": "Can Lisa dance?", "right": "Yes, she can." },
+          { "left": "Who can't sing?", "right": "Billy can't." }
+        ]
+      }
+    ]
+  }
+}
