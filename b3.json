@@ -1,0 +1,208 @@
+{
+  "bookId": 3,
+  "bookTitle": "Book 3",
+  "part1": {
+    "title": "Review 綜合測驗",
+    "description": "系統將自 20 題 Review 題庫中隨機抽取 10 題作答。",
+    "sampleCount": 10,
+    "questions": [
+      {
+        "id": 1,
+        "type": "choice",
+        "question": "A: Are these your ______? \nB: No, they're Sean's.",
+        "options": ["jacket", "sock", "jeans"],
+        "answer": "jeans"
+      },
+      {
+        "id": 2,
+        "type": "choice",
+        "question": "I need ______ cheese to make ______ cheeseburger.",
+        "options": ["a / a", "some / a", "some / some"],
+        "answer": "some / a"
+      },
+      {
+        "id": 3,
+        "type": "choice",
+        "question": "A: ______ do you like, juice or milk? \nB: Juice.",
+        "options": ["What", "Which", "Where"],
+        "answer": "Which"
+      },
+      {
+        "id": 4,
+        "type": "choice",
+        "question": "Joan's birthday is on February ______.",
+        "options": ["second", "two", "twenty-two"],
+        "answer": "second"
+      },
+      {
+        "id": 5,
+        "type": "choice",
+        "question": "I have two cellphones. The new ______ is a birthday gift.",
+        "options": ["it", "ones", "one"],
+        "answer": "one"
+      },
+      {
+        "id": 6,
+        "type": "choice",
+        "question": "You have a sore throat. You ______ eat ice cream.",
+        "options": ["should", "shouldn't", "doesn't"],
+        "answer": "shouldn't"
+      },
+      {
+        "id": 7,
+        "type": "choice",
+        "question": "A: Do you want to dance? \nB: Yes, we ______.",
+        "options": ["do", "want", "are"],
+        "answer": "do"
+      },
+      {
+        "id": 8,
+        "type": "choice",
+        "question": "A: Is the school camping trip ______ July? \nB: Yes, it's ______ July 5th and 6th.",
+        "options": ["in / on", "in / at", "on / on"],
+        "answer": "in / on"
+      },
+      {
+        "id": 9,
+        "type": "choice",
+        "question": "Jim ______ cook lunch, but he doesn't ______ cook dinner.",
+        "options": ["have to / have to", "has to / has to", "has to / have to"],
+        "answer": "has to / have to"
+      },
+      {
+        "id": 10,
+        "type": "choice",
+        "question": "My sister has ______ hair.",
+        "options": ["long straight brown", "brown straight long", "straight brown long"],
+        "answer": "long straight brown"
+      },
+      {
+        "id": 11,
+        "type": "choice",
+        "question": "There ______ a lot of cookies in the cookie jar yesterday. But now there aren't any.",
+        "options": ["are", "was", "were"],
+        "answer": "were"
+      },
+      {
+        "id": 12,
+        "type": "choice",
+        "question": "It's ______ 7:00. I often eat dinner ______ 7:00.",
+        "options": ["at / at", "X / at", "X / X"],
+        "answer": "X / at"
+      },
+      {
+        "id": 13,
+        "type": "choice",
+        "passage": "Neilson is a great basketball player. He [13] basketball every day. Every morning, he gets up [14] 6:00 and plays basketball with his friends. He always [15] good and healthy food. He likes fruit and [16]. He doesn't eat junk food. He [17] eats candy or ice cream. He [18] milk and water, but he [19] drink soda. [20] tall and strong. He's really good at playing basketball.",
+        "question": "第 13 題：He ______ basketball every day.",
+        "options": ["play", "plays", "playing"],
+        "answer": "plays"
+      },
+      {
+        "id": 14,
+        "type": "choice",
+        "question": "第 14 題：Every morning, he gets up ______ 6:00 and plays basketball with his friends.",
+        "options": ["in", "on", "at"],
+        "answer": "at"
+      },
+      {
+        "id": 15,
+        "type": "choice",
+        "question": "第 15 題：He always ______ good and healthy food.",
+        "options": ["has", "have", "eat"],
+        "answer": "has"
+      },
+      {
+        "id": 16,
+        "type": "choice",
+        "question": "第 16 題：He likes fruit and ______.",
+        "options": ["a meat", "meat", "meats"],
+        "answer": "meat"
+      },
+      {
+        "id": 17,
+        "type": "choice",
+        "question": "第 17 題：He ______ eats candy or ice cream.",
+        "options": ["usually", "often", "seldom"],
+        "answer": "seldom"
+      },
+      {
+        "id": 18,
+        "type": "choice",
+        "question": "第 18 題：He ______ milk and water,",
+        "options": ["drink", "drinks", "drinking"],
+        "answer": "drinks"
+      },
+      {
+        "id": 19,
+        "type": "choice",
+        "question": "第 19 題：but he ______ drink soda.",
+        "options": ["doesn't", "don't", "isn't"],
+        "answer": "doesn't"
+      },
+      {
+        "id": 20,
+        "type": "choice",
+        "question": "第 20 題：______ tall and strong.",
+        "options": ["He's", "His", "He"],
+        "answer": "He's"
+      }
+    ]
+  },
+  "part2": {
+    "title": "文法連連看 (Matching)",
+    "description": "共 5 組關卡，每組 4 題，請將左側題目與右側正確對應項目連線。",
+    "sets": [
+      {
+        "setId": 1,
+        "setName": "關卡 1：疑問詞與問答配對 (Wh- Questions)",
+        "pairs": [
+          { "left": "Where is Jason going?", "right": "To the park." },
+          { "left": "Who wants this new book?", "right": "Henry does." },
+          { "left": "Which hat does your sister like?", "right": "The pink one." },
+          { "left": "Who is playing the drums?", "right": "Sue and Tracy are." }
+        ]
+      },
+      {
+        "setId": 2,
+        "setName": "關卡 2：頻率副詞比例配對 (Frequency Adverbs)",
+        "pairs": [
+          { "left": "100%", "right": "always" },
+          { "left": "90%", "right": "usually" },
+          { "left": "70%", "right": "often" },
+          { "left": "10%", "right": "seldom" }
+        ]
+      },
+      {
+        "setId": 3,
+        "setName": "關卡 3：時間介系詞配對 (in / on / at)",
+        "pairs": [
+          { "left": "School begins ______ September.", "right": "in" },
+          { "left": "My birthday is ______ November 22nd.", "right": "on" },
+          { "left": "My favorite TV show starts ______ seven o'clock.", "right": "at" },
+          { "left": "Her swimming lessons are ______ the afternoon.", "right": "in" }
+        ]
+      },
+      {
+        "setId": 4,
+        "setName": "關卡 4：節日與日期配對 (Dates & Ordinals)",
+        "pairs": [
+          { "left": "What's the date today?", "right": "It's July twenty-third." },
+          { "left": "When's Sam's birthday party?", "right": "It's on February fourteenth." },
+          { "left": "When's Halloween?", "right": "It's on October thirty-first." },
+          { "left": "When is the math test?", "right": "It's on September twelfth." }
+        ]
+      },
+      {
+        "setId": 5,
+        "setName": "關卡 5：過去式 Be 動詞情境配對 (was / were)",
+        "pairs": [
+          { "left": "Where ______ you yesterday?", "right": "were" },
+          { "left": "I ______ at my grandma's house.", "right": "was" },
+          { "left": "My mom and dad ______ at work.", "right": "were" },
+          { "left": "______ it fun in Japan?", "right": "Was" }
+        ]
+      }
+    ]
+  }
+}
