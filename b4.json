@@ -1,0 +1,208 @@
+{
+  "bookId": 4,
+  "bookTitle": "Book 4",
+  "part1": {
+    "title": "Review 綜合測驗",
+    "description": "系統將自 20 題 Review 題庫中隨機抽取 10 題作答。",
+    "sampleCount": 10,
+    "questions": [
+      {
+        "id": 1,
+        "type": "choice",
+        "question": "We went to Japan ______.",
+        "options": ["by ourselves", "by myself", "by yourselves"],
+        "answer": "by ourselves"
+      },
+      {
+        "id": 2,
+        "type": "choice",
+        "question": "We ______ camping last week because it rained heavily.",
+        "options": ["didn't went", "don't go", "didn't go"],
+        "answer": "didn't go"
+      },
+      {
+        "id": 3,
+        "type": "choice",
+        "question": "We're going to go swimming ______.",
+        "options": ["next week", "now", "last Sunday"],
+        "answer": "next week"
+      },
+      {
+        "id": 4,
+        "type": "choice",
+        "question": "The giant is much ______ than Jack.",
+        "options": ["bigger", "tall", "big"],
+        "answer": "bigger"
+      },
+      {
+        "id": 5,
+        "type": "choice",
+        "question": "A: How many ______ are there? \nB: There are ten.",
+        "options": ["juice", "can of juice", "cans of juice"],
+        "answer": "cans of juice"
+      },
+      {
+        "id": 6,
+        "type": "choice",
+        "question": "Look at those dark clouds. Is it ______?",
+        "options": ["going raining", "going to rain", "will rain"],
+        "answer": "going to rain"
+      },
+      {
+        "id": 7,
+        "type": "choice",
+        "question": "A: Are these your gloves? \nB: No, they aren't ______. They're ______.",
+        "options": ["Amy / her", "mine / hers", "his / their"],
+        "answer": "mine / hers"
+      },
+      {
+        "id": 8,
+        "type": "choice",
+        "question": "\"Mirror, who is the ______ girl in the world?\" asked the queen.",
+        "options": ["X", "more", "most beautiful"],
+        "answer": "most beautiful"
+      },
+      {
+        "id": 9,
+        "type": "choice",
+        "question": "She didn't ______ to work. She ______ to work.",
+        "options": ["drove / walked", "drive / walked", "drive / walks"],
+        "answer": "drive / walked"
+      },
+      {
+        "id": 10,
+        "type": "choice",
+        "question": "Grace is a ______ driver. She always drives ______.",
+        "options": ["careful / carefully", "carefully / careful", "careful / careful"],
+        "answer": "careful / carefully"
+      },
+      {
+        "id": 11,
+        "type": "choice",
+        "question": "There isn't ______ orange juice in the jar.",
+        "options": ["a lot of", "a few", "many"],
+        "answer": "a lot of"
+      },
+      {
+        "id": 12,
+        "type": "choice",
+        "question": "I just want ______ sugar in my tea, not too ______.",
+        "options": ["a few / many", "a little / much", "a lot of / many"],
+        "answer": "a little / much"
+      },
+      {
+        "id": 13,
+        "type": "choice",
+        "passage": "Dear Bobby,\nI'm in China. [13], my family and I flew to China. Yesterday, we [14] the Great Wall. It's the [15] wall in the world. Tomorrow we [16] to a panda zoo. I'll take pictures with the pandas. There are [17] different kinds of Chinese food. I tried dumplings and fried rice. I think dumplings are [18] than fried rice. Next time we can [19] here together. I'll [20] your tour guide.\nLove, Lily",
+        "question": "第 13 題：______, my family and I flew to China.",
+        "options": ["Next week", "Last week", "tomorrow"],
+        "answer": "Last week"
+      },
+      {
+        "id": 14,
+        "type": "choice",
+        "question": "第 14 題：Yesterday, we ______ the Great Wall.",
+        "options": ["visited", "will visit", "are visiting"],
+        "answer": "visited"
+      },
+      {
+        "id": 15,
+        "type": "choice",
+        "question": "第 15 題：It's the ______ wall in the world.",
+        "options": ["long", "longer", "longest"],
+        "answer": "longest"
+      },
+      {
+        "id": 16,
+        "type": "choice",
+        "question": "第 16 題：Tomorrow we ______ to a panda zoo.",
+        "options": ["went", "go", "are going to go"],
+        "answer": "are going to go"
+      },
+      {
+        "id": 17,
+        "type": "choice",
+        "question": "第 17 題：There are ______ different kinds of Chinese food.",
+        "options": ["much", "many", "a lot"],
+        "answer": "many"
+      },
+      {
+        "id": 18,
+        "type": "choice",
+        "question": "第 18 題：I think dumplings are ______ than fried rice.",
+        "options": ["yummy", "yummier", "the yummiest"],
+        "answer": "yummier"
+      },
+      {
+        "id": 19,
+        "type": "choice",
+        "question": "第 19 題：Next time we can ______ here together.",
+        "options": ["came", "comes", "come"],
+        "answer": "come"
+      },
+      {
+        "id": 20,
+        "type": "choice",
+        "question": "第 20 題：I'll ______ your tour guide.",
+        "options": ["be", "going to be", "am"],
+        "answer": "be"
+      }
+    ]
+  },
+  "part2": {
+    "title": "文法連連看 (Matching)",
+    "description": "共 5 組關卡，每組 4 題，請將左側題目與右側正確對應項目連線。",
+    "sets": [
+      {
+        "setId": 1,
+        "setName": "關卡 1：不規則動詞過去式配對 (Irregular Past Verbs)",
+        "pairs": [
+          { "left": "fly", "right": "flew" },
+          { "left": "see", "right": "saw" },
+          { "left": "drink", "right": "drank" },
+          { "left": "eat", "right": "ate" }
+        ]
+      },
+      {
+        "setId": 2,
+        "setName": "關卡 2：形容詞最高級變化 (Superlative Adjectives)",
+        "pairs": [
+          { "left": "hot", "right": "hottest" },
+          { "left": "hungry", "right": "hungriest" },
+          { "left": "expensive", "right": "most expensive" },
+          { "left": "bad", "right": "worst" }
+        ]
+      },
+      {
+        "setId": 3,
+        "setName": "關卡 3：未來式問答配對 (be going to / will)",
+        "pairs": [
+          { "left": "What are you going to do on the weekend?", "right": "I am going to cook dinner for my dad." },
+          { "left": "Are you going to go fishing this summer?", "right": "Yes, we are." },
+          { "left": "Will your mom and dad be home soon?", "right": "No, they won't." },
+          { "left": "We don't have any eggs.", "right": "I will get some on my way home." }
+        ]
+      },
+      {
+        "setId": 4,
+        "setName": "關卡 4：數量與量詞情境配對 (Quantifiers)",
+        "pairs": [
+          { "left": "four or five pieces of pizza (not many)", "right": "a few" },
+          { "left": "not a lot of money", "right": "a little" },
+          { "left": "______ children are going to the zoo?", "right": "How many" },
+          { "left": "I drink ______ water every day.", "right": "a lot of" }
+        ]
+      },
+      {
+        "setId": 5,
+        "setName": "關卡 5：時間副詞與時態對應 (Time & Tenses)",
+        "pairs": [
+          { "left": "Tim ______ to school yesterday.", "right": "walked" },
+          { "left": "______ you tall last year?", "right": "Were" },
+          { "left": "Kelly usually ______ her homework in the evening.", "right": "does" },
+          { "left": "Where is Amy going to go ______?", "right": "next year" }
+        ]
+      }
+    ]
+  }
+}
