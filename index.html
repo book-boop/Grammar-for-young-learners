@@ -135,7 +135,7 @@
       margin: 8px auto 0 auto;
     }
 
-    /* 首頁封面陳列 */
+    /* 首頁封面陳列（純展示，無點擊跳轉） */
     .books-display {
       display: flex;
       flex-direction: column;
@@ -154,7 +154,8 @@
 
     .book-item {
       position: relative;
-      cursor: pointer;
+      cursor: default;
+      user-select: none;
       border-radius: 14px;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       box-shadow: 0 14px 28px rgba(30, 64, 110, 0.22);
@@ -167,12 +168,7 @@
       height: 220px;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
-    }
-    .book-item:hover {
-      transform: translateY(-10px) scale(1.06) rotate(0deg) !important;
-      box-shadow: 0 22px 36px rgba(30, 64, 110, 0.32);
-      z-index: 10;
+      pointer-events: none;
     }
 
     .row-top .book-item:nth-child(1) { transform: rotate(-4deg); }
@@ -526,7 +522,7 @@
 
 <div class="app-container">
 
-  <!-- 1. 扉頁 (首頁) -->
+  <!-- 1. 扉頁 (首頁：僅展示書封，必須點擊 START 進入目錄) -->
   <section id="screen-cover" class="view-screen active">
     <div class="curved-header">
       <div class="header-brackets-wrapper">
@@ -540,22 +536,22 @@
 
     <div class="books-display">
       <div class="books-row row-top">
-        <div class="book-item" onclick="handleBookClick(1)">
+        <div class="book-item">
           <img src="./images/b1.png" alt="Grammar Book 1">
         </div>
-        <div class="book-item" onclick="handleBookClick(2)">
+        <div class="book-item">
           <img src="./images/b2.png" alt="Grammar Book 2">
         </div>
-        <div class="book-item" onclick="handleBookClick(3)">
+        <div class="book-item">
           <img src="./images/b3.png" alt="Grammar Book 3">
         </div>
       </div>
 
       <div class="books-row row-bottom">
-        <div class="book-item" onclick="handleBookClick(4)">
+        <div class="book-item">
           <img src="./images/b4.png" alt="Grammar Book 4">
         </div>
-        <div class="book-item" onclick="handleBookClick(5)">
+        <div class="book-item">
           <img src="./images/b5.png" alt="Grammar Book 5">
         </div>
       </div>
