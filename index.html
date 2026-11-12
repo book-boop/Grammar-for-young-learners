@@ -682,40 +682,34 @@
     return String(txt).replace(/\s*[;；]\s*/g, ' / ');
   }
 
-  // 自動計算克漏字偏移量，將 [15]~[20] 轉換為 (1)~(6)，並將題幹「第 15 題：」替換為「(1)」
-  function getClozeFormattedData(q, allQuestions) {
-    let clozeOffset = 0;
+  // 處理克漏字文章與題幹編號：
+  // 1. 有附帶文章 (q.passage) 時，文章內 [15] 轉 (1)，題幹「第 15 題：」轉為「(1) 」以便對照
+  // 2. 無附帶文章的獨立題目，直接移除「第 X 題：」，不顯示括號與數字
+  function getClozeFormattedData(q) {
+    let formattedPassage = "";
+    let formattedQuestion = q.question || "";
 
-    // 1. 尋找所屬文章的起始題號 (例如 [15] -> 15，則偏移量為 14)
-    let passageSource = q.passage || "";
-    if (!passageSource && /^第\s*\d+\s*題[：:]/.test(q.question)) {
-      const prevPassageQ = allQuestions.find(item => item.passage);
-      if (prevPassageQ) passageSource = prevPassageQ.passage;
-    }
-
-    if (passageSource) {
-      const matches = [...passageSource.matchAll(/\[(\d+)\]/g)];
+    if (q.passage) {
+      let clozeOffset = 0;
+      const matches = [...q.passage.matchAll(/\[(\d+)\]/g)];
       if (matches.length > 0) {
         const minNum = Math.min(...matches.map(m => parseInt(m[1], 10)));
         clozeOffset = minNum - 1;
       }
-    }
 
-    // 2. 轉換文章中的 [15] -> (1)
-    let formattedPassage = "";
-    if (q.passage) {
       formattedPassage = q.passage.replace(/\[(\d+)\]/g, (_, numStr) => {
         const newNum = parseInt(numStr, 10) - clozeOffset;
         return `<span class="cloze-num">(${newNum})</span>`;
       });
-    }
 
-    // 3. 轉換題幹中的「第 15 題：」 -> 「(1) 」
-    let formattedQuestion = q.question.replace(/^第\s*(\d+)\s*題[：:]\s*/, (_, numStr) => {
-      const origNum = parseInt(numStr, 10);
-      const newNum = clozeOffset > 0 ? (origNum - clozeOffset) : origNum;
-      return `(${newNum}) `;
-    });
+      formattedQuestion = formattedQuestion.replace(/^第\s*(\d+)\s*題[：:]\s*/, (_, numStr) => {
+        const origNum = parseInt(numStr, 10);
+        const newNum = clozeOffset > 0 ? (origNum - clozeOffset) : origNum;
+        return `(${newNum}) `;
+      });
+    } else {
+      formattedQuestion = formattedQuestion.replace(/^第\s*\d+\s*題[：:]\s*/, '');
+    }
 
     return { formattedPassage, formattedQuestion };
   }
@@ -784,8 +778,7 @@
     const container = document.getElementById('quizContainer');
 
     const formattedAnswer = formatOptionText(q.answer);
-    const allQuestions = (currentBookData && currentBookData.part1 && currentBookData.part1.questions) || [];
-    const { formattedPassage, formattedQuestion } = getClozeFormattedData(q, allQuestions);
+    const { formattedPassage, formattedQuestion } = getClozeFormattedData(q);
 
     container.innerHTML = `
       <div class="quiz-card">
