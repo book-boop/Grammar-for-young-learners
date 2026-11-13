@@ -233,8 +233,8 @@
 
     /* 目錄卡片對應書本封面圖片 */
     .menu-book-thumb {
-      width: 48px;
-      height: 68px;
+      width: 50px;
+      height: 72px;
       border-radius: 8px;
       object-fit: cover;
       flex-shrink: 0;
@@ -250,19 +250,30 @@
       display: flex;
       flex-direction: column;
       text-align: left;
+      gap: 4px;
     }
-    .card-title {
-      font-size: 0.98rem;
-      font-weight: 800;
-      color: #2D3748;
-      line-height: 1.45;
+    .card-book-label {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+    }
+    .card-desc {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #4A5568;
+      line-height: 1.4;
     }
 
     .c-b1 { border-left-color: #3182CE; }
+    .c-b1 .card-book-label { color: #2B6CB0; }
     .c-b2 { border-left-color: #38A169; }
+    .c-b2 .card-book-label { color: #2F855A; }
     .c-b3 { border-left-color: #DD6B20; }
+    .c-b3 .card-book-label { color: #C05621; }
     .c-b4 { border-left-color: #D53F8C; }
+    .c-b4 .card-book-label { color: #B83280; }
     .c-b5 { border-left-color: #6B46C1; }
+    .c-b5 .card-book-label { color: #553C9A; }
 
     .btn-secondary {
       padding: 10px 30px;
@@ -584,31 +595,36 @@
       <div class="menu-card c-b1" onclick="handleBookClick(1)">
         <img src="./images/b1.png" alt="Book 1" class="menu-book-thumb">
         <div class="card-info">
-          <div class="card-title">名詞單複數、代名詞、指示詞與基本疑問句</div>
+          <div class="card-book-label">Book 1</div>
+          <div class="card-desc">名詞單複數、代名詞、指示詞與基本疑問句</div>
         </div>
       </div>
       <div class="menu-card c-b2" onclick="handleBookClick(2)">
         <img src="./images/b2.png" alt="Book 2" class="menu-book-thumb">
         <div class="card-info">
-          <div class="card-title">情態助動詞、一般現在式、所有格與現在進行式</div>
+          <div class="card-book-label">Book 2</div>
+          <div class="card-desc">情態助動詞、一般現在式、所有格與現在進行式</div>
         </div>
       </div>
       <div class="menu-card c-b3" onclick="handleBookClick(3)">
         <img src="./images/b3.png" alt="Book 3" class="menu-book-thumb">
         <div class="card-info">
-          <div class="card-title">數量詞、頻率副詞、時間介系詞與過去式 Be 動詞</div>
+          <div class="card-book-label">Book 3</div>
+          <div class="card-desc">數量詞、頻率副詞、時間介系詞與過去式 Be 動詞</div>
         </div>
       </div>
       <div class="menu-card c-b4" onclick="handleBookClick(4)">
         <img src="./images/b4.png" alt="Book 4" class="menu-book-thumb">
         <div class="card-info">
-          <div class="card-title">過去簡單式、形容詞比較級與最高級、未來式</div>
+          <div class="card-book-label">Book 4</div>
+          <div class="card-desc">過去簡單式、形容詞比較級與最高級、未來式</div>
         </div>
       </div>
       <div class="menu-card c-b5" onclick="handleBookClick(5)">
         <img src="./images/b5.png" alt="Book 5" class="menu-book-thumb">
         <div class="card-info">
-          <div class="card-title">過去進行式、現在完成式、被動語態與關係子句</div>
+          <div class="card-book-label">Book 5</div>
+          <div class="card-desc">過去進行式、現在完成式、被動語態與關係子句</div>
         </div>
       </div>
     </div>
