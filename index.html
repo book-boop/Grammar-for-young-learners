@@ -231,7 +231,6 @@
     }
     .menu-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(49, 130, 206, 0.18);
     }
 
     /* 目錄卡片對應書本封面圖片 */
@@ -261,22 +260,67 @@
       letter-spacing: 0.3px;
     }
     .card-desc {
-      font-size: 0.86rem;
+      font-size: 0.82rem;
       font-weight: 600;
       color: #4A5568;
-      line-height: 1.4;
+      line-height: 1.38;
     }
 
-    .c-b1 { border-left-color: #3182CE; }
-    .c-b1 .card-book-label { color: #2B6CB0; }
-    .c-b2 { border-left-color: #38A169; }
-    .c-b2 .card-book-label { color: #2F855A; }
-    .c-b3 { border-left-color: #DD6B20; }
-    .c-b3 .card-book-label { color: #C05621; }
-    .c-b4 { border-left-color: #D53F8C; }
-    .c-b4 .card-book-label { color: #B83280; }
-    .c-b5 { border-left-color: #6B46C1; }
-    .c-b5 .card-book-label { color: #553C9A; }
+    /* 呼應五本書封面的主色調外框與標題配色 */
+    /* Book 1: 亮橘色封面 */
+    .c-b1 { 
+      border-color: rgba(249, 115, 22, 0.35);
+      border-left: 6px solid #F97316; 
+    }
+    .c-b1:hover { 
+      border-color: #F97316; 
+      box-shadow: 0 12px 24px rgba(249, 115, 22, 0.22); 
+    }
+    .c-b1 .card-book-label { color: #EA580C; }
+
+    /* Book 2: 天藍色封面 */
+    .c-b2 { 
+      border-color: rgba(2, 132, 199, 0.35);
+      border-left: 6px solid #0284C7; 
+    }
+    .c-b2:hover { 
+      border-color: #0284C7; 
+      box-shadow: 0 12px 24px rgba(2, 132, 199, 0.22); 
+    }
+    .c-b2 .card-book-label { color: #0369A1; }
+
+    /* Book 3: 亮粉色封面 */
+    .c-b3 { 
+      border-color: rgba(236, 72, 153, 0.35);
+      border-left: 6px solid #EC4899; 
+    }
+    .c-b3:hover { 
+      border-color: #EC4899; 
+      box-shadow: 0 12px 24px rgba(236, 72, 153, 0.22); 
+    }
+    .c-b3 .card-book-label { color: #DB2777; }
+
+    /* Book 4: 翠綠色封面 */
+    .c-b4 { 
+      border-color: rgba(22, 163, 74, 0.35);
+      border-left: 6px solid #16A34A; 
+    }
+    .c-b4:hover { 
+      border-color: #16A34A; 
+      box-shadow: 0 12px 24px rgba(22, 163, 74, 0.22); 
+    }
+    .c-b4 .card-book-label { color: #15803D; }
+
+    /* Book 5: 金黃色封面 */
+    .c-b5 { 
+      border-color: rgba(234, 179, 8, 0.45);
+      border-left: 6px solid #EAB308; 
+    }
+    .c-b5:hover { 
+      border-color: #EAB308; 
+      box-shadow: 0 12px 24px rgba(234, 179, 8, 0.24); 
+    }
+    .c-b5 .card-book-label { color: #CA8A04; }
 
     .btn-secondary {
       padding: 10px 30px;
@@ -628,35 +672,35 @@
         <img src="./images/b1.png" alt="Book 1" class="menu-book-thumb">
         <div class="card-info">
           <div class="card-book-label">Book 1</div>
-          <div class="card-desc">名詞單複數、代名詞、指示詞與基本疑問句</div>
+          <div class="card-desc">Nouns, Pronouns, Demonstratives &amp; Basic Questions</div>
         </div>
       </div>
       <div class="menu-card c-b2" onclick="handleBookClick(2)">
         <img src="./images/b2.png" alt="Book 2" class="menu-book-thumb">
         <div class="card-info">
           <div class="card-book-label">Book 2</div>
-          <div class="card-desc">情態助動詞、一般現在式、所有格與現在進行式</div>
+          <div class="card-desc">Modals, Simple Present, Possessives &amp; Present Continuous</div>
         </div>
       </div>
       <div class="menu-card c-b3" onclick="handleBookClick(3)">
         <img src="./images/b3.png" alt="Book 3" class="menu-book-thumb">
         <div class="card-info">
           <div class="card-book-label">Book 3</div>
-          <div class="card-desc">數量詞、頻率副詞、時間介系詞與過去式 Be 動詞</div>
+          <div class="card-desc">Quantifiers, Frequency Adverbs, Prepositions &amp; Past Be</div>
         </div>
       </div>
       <div class="menu-card c-b4" onclick="handleBookClick(4)">
         <img src="./images/b4.png" alt="Book 4" class="menu-book-thumb">
         <div class="card-info">
           <div class="card-book-label">Book 4</div>
-          <div class="card-desc">過去簡單式、形容詞比較級與最高級、未來式</div>
+          <div class="card-desc">Simple Past, Comparatives, Superlatives &amp; Future Tense</div>
         </div>
       </div>
       <div class="menu-card c-b5" onclick="handleBookClick(5)">
         <img src="./images/b5.png" alt="Book 5" class="menu-book-thumb">
         <div class="card-info">
           <div class="card-book-label">Book 5</div>
-          <div class="card-desc">過去進行式、現在完成式、被動語態與關係子句</div>
+          <div class="card-desc">Past Continuous, Present Perfect, Passive Voice &amp; Clauses</div>
         </div>
       </div>
     </div>
