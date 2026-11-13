@@ -1,0 +1,208 @@
+{
+  "bookId": 5,
+  "bookTitle": "Book 5",
+  "part1": {
+    "title": "Review 綜合測驗",
+    "description": "系統將自 20 題 Review 題庫中隨機抽取 10 題作答。",
+    "sampleCount": 10,
+    "questions": [
+      {
+        "id": 1,
+        "type": "choice",
+        "question": "Those are Jill's shoes, ______?",
+        "options": ["are they", "aren't those", "aren't they"],
+        "answer": "aren't they"
+      },
+      {
+        "id": 2,
+        "type": "choice",
+        "question": "These pictures ______ at the park near my school.",
+        "options": ["didn't draw", "are drawing", "were drawn"],
+        "answer": "were drawn"
+      },
+      {
+        "id": 3,
+        "type": "choice",
+        "question": "They have been playing soccer ______ early evening.",
+        "options": ["since", "for", "at"],
+        "answer": "since"
+      },
+      {
+        "id": 4,
+        "type": "choice",
+        "question": "A: ______ you ever ______ Mount Fuji? \nB: No, never.",
+        "options": ["Have / visited", "Do / visit", "Have / been"],
+        "answer": "Have / visited"
+      },
+      {
+        "id": 5,
+        "type": "choice",
+        "question": "I can't find my books. Can you help me find ______?",
+        "options": ["them", "they", "it"],
+        "answer": "them"
+      },
+      {
+        "id": 6,
+        "type": "choice",
+        "question": "Susie ______ dancing when I ______ her.",
+        "options": ["was / see", "is / saw", "was / saw"],
+        "answer": "was / saw"
+      },
+      {
+        "id": 7,
+        "type": "choice",
+        "question": "He's not talking to ______. He's talking to ______.",
+        "options": ["you / she", "me / himself", "they / us"],
+        "answer": "me / himself"
+      },
+      {
+        "id": 8,
+        "type": "choice",
+        "question": "The man ______ is talking to the teacher is my father.",
+        "options": ["where", "which", "who"],
+        "answer": "who"
+      },
+      {
+        "id": 9,
+        "type": "choice",
+        "question": "The kids were ______ to hear the story.",
+        "options": ["interesting", "shocked", "boring"],
+        "answer": "shocked"
+      },
+      {
+        "id": 10,
+        "type": "choice",
+        "question": "Jill said she ______ sick and she ______ to see a doctor.",
+        "options": ["was / had", "was / is having", "is / having"],
+        "answer": "was / had"
+      },
+      {
+        "id": 11,
+        "type": "choice",
+        "question": "Good friends won't make us ______ things that we don't want to.",
+        "options": ["to do", "do", "did"],
+        "answer": "do"
+      },
+      {
+        "id": 12,
+        "type": "choice",
+        "passage": "Ben: I wish I could get the magic lamp in Aladdin. If I had [12], I would make the Genie in it [13] me three wishes.\nAnn: [14] is Genie?\nBen: Genie is the god [15] has been living in the magic lamp for a long, long time.\nAnn: If you could get the magic lamp, what would you wish for?\nBen: I'd wish there [16] no school and no homework.\nAnn: Hahaha, that's an [17] wish. What are the other two wishes?\nBen: I wish I could play the [18] video games in the world. I wish I could be the [19] game player.\nAnn: Stop daydreaming. You should [20] for your test now.",
+        "question": "第 12 題：If I had ______, I would make the Genie...",
+        "options": ["ones", "them", "it"],
+        "answer": "it"
+      },
+      {
+        "id": 13,
+        "type": "choice",
+        "question": "第 13 題：I would make the Genie in it ______ me three wishes.",
+        "options": ["to give", "giving", "give"],
+        "answer": "give"
+      },
+      {
+        "id": 14,
+        "type": "choice",
+        "question": "第 14 題：______ is Genie?",
+        "options": ["Where", "Who", "How"],
+        "answer": "Who"
+      },
+      {
+        "id": 15,
+        "type": "choice",
+        "question": "第 15 題：Genie is the god ______ has been living in the magic lamp for a long, long time.",
+        "options": ["who", "whose", "what"],
+        "answer": "who"
+      },
+      {
+        "id": 16,
+        "type": "choice",
+        "question": "第 16 題：I'd wish there ______ no school and no homework.",
+        "options": ["have", "were", "aren't"],
+        "answer": "were"
+      },
+      {
+        "id": 17,
+        "type": "choice",
+        "question": "第 17 題：Hahaha, that's an ______ wish.",
+        "options": ["interested", "interesting", "boring"],
+        "answer": "interesting"
+      },
+      {
+        "id": 18,
+        "type": "choice",
+        "question": "第 18 題：I wish I could play the ______ video games in the world.",
+        "options": ["exciting", "more exciting", "most exciting"],
+        "answer": "most exciting"
+      },
+      {
+        "id": 19,
+        "type": "choice",
+        "question": "第 19 題：I wish I could be the ______ game player.",
+        "options": ["best", "better", "good"],
+        "answer": "best"
+      },
+      {
+        "id": 20,
+        "type": "choice",
+        "question": "第 20 題：You should ______ for your test now.",
+        "options": ["study", "to study", "be studied"],
+        "answer": "study"
+      }
+    ]
+  },
+  "part2": {
+    "title": "文法連連看 (Matching)",
+    "description": "共 5 組關卡，每組 4 題，請將左側題目與右側正確對應項目連線。",
+    "sets": [
+      {
+        "setId": 1,
+        "setName": "關卡 1：附加問句配對 (Question Tags)",
+        "pairs": [
+          { "left": "You're from Korea, ______?", "right": "aren't you" },
+          { "left": "Your sister likes animals very much, ______?", "right": "doesn't she" },
+          { "left": "There are cookies in the box, ______?", "right": "aren't there" },
+          { "left": "Jill was excited at that party, ______?", "right": "wasn't she" }
+        ]
+      },
+      {
+        "setId": 2,
+        "setName": "關卡 2：主動語態與被動語態配對 (Passive Voice)",
+        "pairs": [
+          { "left": "People speak English all over the world.", "right": "English is spoken all over the world." },
+          { "left": "Ken and Lily drank milk this morning.", "right": "Milk was drunk by Ken and Lily this morning." },
+          { "left": "They close the museums on Mondays.", "right": "The museums are closed on Mondays." },
+          { "left": "Oscar rode my bike to school yesterday.", "right": "My bike was ridden to school by Oscar yesterday." }
+        ]
+      },
+      {
+        "setId": 3,
+        "setName": "關卡 3：現在完成式與 already / yet 配對",
+        "pairs": [
+          { "left": "Zoe has ______ done her homework.", "right": "already" },
+          { "left": "She hasn't studied for the English test ______.", "right": "yet" },
+          { "left": "Has Zoe read the new book ______?", "right": "yet" },
+          { "left": "Yes, she has ______ read the new book.", "right": "already" }
+        ]
+      },
+      {
+        "setId": 4,
+        "setName": "關卡 4：完成進行式時間詞配對 (since / for)",
+        "pairs": [
+          { "left": "Andy has been talking on the phone ______ 3:30.", "right": "since" },
+          { "left": "Lucy has been watching TV ______ two hours.", "right": "for" },
+          { "left": "I have been visiting Paris ______ last week.", "right": "since" },
+          { "left": "Kate and Lily have been waiting for the bus ______ thirty minutes.", "right": "for" }
+        ]
+      },
+      {
+        "setId": 5,
+        "setName": "關卡 5：關係代名詞與條件假設配對 (Relative & Conditional Clauses)",
+        "pairs": [
+          { "left": "Do you see the woman ______ is standing at the door?", "right": "who" },
+          { "left": "Who ate the cake ______ I made this morning?", "right": "which" },
+          { "left": "What would you do if you ______ a lot of money?", "right": "had" },
+          { "left": "If it is sunny tomorrow, they ______ swimming.", "right": "will go" }
+        ]
+      }
+    ]
+  }
+}
